@@ -13,20 +13,19 @@ class Program
 {
     static void Main(string[] args)
     {
-        //The arguments needed are 
-        //1. The name of the json file holding the AuthP version 5 sharding entries, e.g. shardingsettings.Production.json
-        //2. The name for the new FileStore Cache file, e.g. FileStoreCacheFile.Production.json
-        //3. The filepath to the the json file. This can be a relative or absolute
-
+        //  Os argumentos necessários são 
+        //  1. o nome do arquivo json que contém as entradas de sharding do AuthP versão 5, por exemplo, shardingsettings.Production.json
+        //  2. O nome do novo arquivo FileStore Cache, por exemplo, FileStoreCacheFile.Production.json
+        //  3. O caminho do arquivo para o arquivo json. Pode ser um caminho relativo ou absoluto
 
         if (args.Length != 3)
         {
-            Console.WriteLine("This app expects three arguments: ");
-            Console.WriteLine("   1. The filepath to the the json file. This can be a relative or absolute.");
-            Console.WriteLine("   2. The name of the json file holding the AuthP version 5 sharding entries.");
-            Console.WriteLine("      e.g. shardingsettings.Production.json");
-            Console.WriteLine("   3. The name for the new FileStore Cache file used by AuthP version 6.");
-            Console.WriteLine("      e.g. FileStoreCacheFile.Production.json");
+            Console.WriteLine("Esse aplicativo espera três argumentos: ");
+            Console.WriteLine("   1. O caminho do arquivo para o arquivo json. Pode ser relativo ou absoluto.");
+            Console.WriteLine("   2. O nome do arquivo json que contém as entradas de sharding do AuthP versão 5.");
+            Console.WriteLine("      por exemplo, shardingsettings.Production.json");
+            Console.WriteLine("   3. O nome do novo arquivo de cache do FileStore usado pelo AuthP versão 6.");
+            Console.WriteLine("      por exemplo, FileStoreCacheFile.Production.json");
             return;
         }
 
