@@ -4,7 +4,7 @@
 @using Microsoft.AspNetCore.Mvc.TagHelpers
 @model Example1.RazorPages.IndividualAccounts.Pages.AuthRoles.ListRolesModel
 
-<h1>Manage roles</h1>
+<h1>Gerenciar funções</h1>
 
 @if (!string.IsNullOrEmpty(Model.Message))
 {
@@ -12,7 +12,7 @@
 }
 
 <a class="btn btn-primary" asp-area="" asp-page=".\Create">
-    @SimpleLocalizer.LocalizeString("Create new role", this)
+    @SimpleLocalizer.LocalizeString("Criar nova função", this)
 </a>
 <p></p>
 
@@ -20,13 +20,13 @@
     <thead>
         <tr>
             <th>
-                @SimpleLocalizer.LocalizeString("Role Name", this)
+                @SimpleLocalizer.LocalizeString("Nome da função", this)
             </th>
             <th>
-                @SimpleLocalizer.LocalizeString("Description", this)
+                @SimpleLocalizer.LocalizeString("Descrição", this)
             </th>
             <th>
-                #@SimpleLocalizer.LocalizeString("Permissions", this)
+                #@SimpleLocalizer.LocalizeString("Permissões", this)
             </th>
             <th></th>
         </tr>

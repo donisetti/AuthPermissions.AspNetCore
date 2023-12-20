@@ -11,15 +11,26 @@ namespace ExamplesCommonCode.CommonAdmin
     public class AuthUserDisplay
     {
         [MaxLength(AuthDbConstants.UserNameSize)]
+        [Display(Name = "Nome do Usuário")]
         public string UserName { get; private set; }
+
         [Required(AllowEmptyStrings = false)]
         [MaxLength(AuthDbConstants.EmailSize)]
+        [Display(Name = "E-mail")]
         public string Email { get; private set; }
+
         [Required(AllowEmptyStrings = false)]
         [MaxLength(AuthDbConstants.UserIdSize)]
+        [Display(Name = "Usuário ID")]
         public string UserId { get; private set; }
+
+        [Display(Name = "Funções")]
         public string[] RoleNames { get; private set; }
+
+        [Display(Name = "Possui Tenant?")]
         public bool HasTenant => TenantName != null;
+
+        [Display(Name = "Nome do Tenant")]
         public string TenantName { get; private set; }
 
         public static IQueryable<AuthUserDisplay> TurnIntoDisplayFormat(IQueryable<AuthUser> inQuery)

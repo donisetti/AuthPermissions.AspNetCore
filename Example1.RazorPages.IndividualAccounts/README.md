@@ -1,8 +1,10 @@
 ﻿# Example1.RazorPages.IndividualAccounts
 
-This project contains a example of using the AuthPermissions.AspNetCore library in ASP.NET Core razor page web app with user data provided by the individual accounts approach. This is one of the simplest approaches using:
+Este projeto contém um exemplo de uso da biblioteca AuthPermissions.
+AspNetCore no aplicativo da Web de página Razor ASP.NET Core com dados de usuário fornecidos pela abordagem de contas individuais.
+Essa é uma das abordagens mais simples de usar:
 
-This article (!!! LINK !!!) details how this example was built, and how it works.
+Este artigo (!!! LINK !!!) detalha como esse exemplo foi criado e como ele funciona.
 
 - **Application**: ASP.NET Core, Razor Pages
 - **AuthorizationProvider**: ASP.NET Core's individual accounts

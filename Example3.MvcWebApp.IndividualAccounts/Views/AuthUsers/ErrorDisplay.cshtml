@@ -1,7 +1,7 @@
 ﻿@model string
 
 @{
-    ViewData["Title"] = "ErrorDisplay";
+    ViewData["Title"] = "Tela de erro";
 }
 
 @foreach (var error in @Model.Split(Environment.NewLine))
@@ -10,5 +10,5 @@
 }
 
 <div>
-    <a asp-action="Index">Back to home</a>
+    <a asp-action="Index">Voltar ao Inicio</a>
 </div>

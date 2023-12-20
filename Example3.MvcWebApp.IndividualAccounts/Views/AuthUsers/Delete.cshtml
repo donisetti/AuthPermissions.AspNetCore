@@ -1,12 +1,12 @@
 ﻿@model ExamplesCommonCode.CommonAdmin.AuthUserDisplay
 
 @{
-    ViewData["Title"] = "Delete";
+    ViewData["Title"] = "Exclusão";
 }
 
-<h1>Delete AuthUser</h1>
+<h1>Excluir Usuário</h1>
 
-<h3>Are you sure you want to delete this user?</h3>
+<h3>Tem certeza de que deseja excluir esse usuário?</h3>
 <div>
     <dl class="row">
 
@@ -26,6 +26,6 @@
     <form asp-action="Delete" method="post">
         @Html.Hidden(nameof(AuthIdAndChange.UserId), Model.UserId)
         <input type="submit" value="Delete" class="btn btn-danger" /> |
-        <a asp-action="Index">Back to List</a>
+        <a asp-action="Index">Voltar à lista</a>
     </form>
 </div>

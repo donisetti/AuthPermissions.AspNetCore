@@ -13,20 +13,20 @@
     <h3 class="text-success">@ViewBag.Message</h3>
 }
 
-<h1>@AddTenantNameClaim.GetTenantNameFromUser(User) invoices</h1>
+<h1>@AddTenantNameClaim.GetTenantNameFromUser(User) Faturas</h1>
 <p>
-    <i>NOTE: This example multi-tenant application makes each company think the application was build just for them.</i>
+    <i>OBSERVAÇÃO: Esse exemplo de aplicativo multilocatário faz com que cada empresa pense que o aplicativo foi criado apenas para ela.</i>
 </p>
 
 @if (User.HasPermission(Example3Permissions.InvoiceCreate))
 {
     <p>
-        <a class="btn btn-primary" asp-action="CreateInvoice">Create Invoice</a>
+        <a class="btn btn-primary" asp-action="CreateInvoice"> Criar fatura</a>
     </p>
 }
 else
 {
-    <h4>You can see the list of current invoices, but you can't create a new invoice.</h4>
+    <h4>Você pode ver a lista de faturas atuais, mas não pode criar uma nova fatura.</h4>
 }
 
 @if (Model != null)
@@ -35,7 +35,7 @@ else
         <thead>
         <tr>
             <th>
-                InvoiceName
+               nome da fatura
             </th>
             <th>
                 DateCreated
@@ -84,10 +84,10 @@ else
     }
     else
     {
-        <div class="h4">If you upgrade to the Enterprise version you will see total cost of your invoices.</div>
+        <div class="h4">Se você atualizar para a versão Enterprise, verá o custo total de suas faturas.</div>
     }
 }
 else
 {
-    <h4>You can create a invoice, but you can't see the list of current invoices.</h4>
+    <h4>Você pode criar uma fatura, mas não pode ver a lista de faturas atuais.</h4>
 }

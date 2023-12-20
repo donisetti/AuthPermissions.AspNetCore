@@ -2,25 +2,25 @@
 @model List<AuthPermissions.AdminCode.SyncAuthUserWithChange>
 
 @{
-    ViewData["Title"] = "SyncUsers";
+    ViewData["Title"] = "Sincronização de usuários";
 }
 
 @if (!@Model.Any())
 {
-    <h3>There are no changes to apply to the AuthUsers</h3>
+    <h3>Não há alterações a serem aplicadas ao usuário</h3>
     return;
 }
 
-<h3>Changes needed based on authentication provider's users</h3>
+<h3>Alterações necessárias com base nos usuários do provedor de autenticação</h3>
 <form method="post">
     <table class="table">
         <thead>
             <tr>
-                <th>Change type</th>
+                <th>Tipo de modificação</th>
                 <th>Email</th>
-                <th>UserName</th>
-                <th>Roles Count</th>
-                <th>Has tenant</th>
+                <th>Nome do Usuário</th>
+                <th>Nº Funções</th>
+                <th>Possui tenant</th>
             </tr>
         </thead>
         <tbody>

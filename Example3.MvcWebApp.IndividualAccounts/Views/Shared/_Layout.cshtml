@@ -8,7 +8,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - Example3</title>
+    <title>@ViewData["Title"] -MVC</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
 </head>
@@ -16,7 +16,7 @@
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Example3</a>
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Exemplo 3 - MVC </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -29,7 +29,7 @@
                         @if (!User.Identity.IsAuthenticated)
                         {
                             <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="CreateTenant">Sign up now!</a>
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="CreateTenant">Assinar agora</a>
                             </li>
                         }
                         @if (User.Identity.IsAuthenticated)
@@ -37,7 +37,7 @@
                             @if (User.HasPermission(Example3Permissions.TenantAccessData))
                             {
                                 <li class="nav-item">
-                                    <a class="nav-link text-dark" asp-area="" asp-controller="Invoice" asp-action="Index">Invoices</a>
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Invoice" asp-action="Index">Faturas</a>
                                 </li>
                             }
                             <li class="dropdown nav-link text-dark">
@@ -46,15 +46,15 @@
                                     Auth Admin
                                 </a>
                                 <div class="dropdown-menu">
-                                    <a class="dropdown-item" asp-area="" asp-controller="AuthUsers" asp-action="Index">List all AuthUsers</a>
-                                    <a class="dropdown-item" asp-area="" asp-controller="Roles" asp-action="Index">List Roles</a>
+                                    <a class="dropdown-item" asp-area="" asp-controller="AuthUsers" asp-action="Index">Listar todos Usuários</a>
+                                    <a class="dropdown-item" asp-area="" asp-controller="Roles" asp-action="Index">Listar Funções</a>
                                     @if (User.HasPermission(Example3Permissions.TenantList))
                                     {
-                                        <a class="dropdown-item" asp-area="" asp-controller="Tenant" asp-action="Index">List Tenants</a>
+                                        <a class="dropdown-item" asp-area="" asp-controller="Tenant" asp-action="Index">Listar Tenants</a>
                                     }
                                     @if (User.HasPermission(Example3Permissions.PermissionRead))
                                     {
-                                        <a class="dropdown-item" asp-area="" asp-controller="Roles" asp-action="ListPermissions">List all Permissions</a>
+                                        <a class="dropdown-item" asp-area="" asp-controller="Roles" asp-action="ListPermissions">Listar todas permissões</a>
                                     }
                                 </div>
                             </li>
@@ -63,15 +63,15 @@
                                     Users info
                                 </a>
                                 <div class="dropdown-menu">
-                                    <a class="dropdown-item" asp-area="" asp-controller="LoggedInUser" asp-action="Index">Your claims</a>
-                                    <a class="dropdown-item" asp-area="" asp-controller="LoggedInUser" asp-action="AuthUserInfo">Your auth data</a>
-                                    <a class="dropdown-item" asp-area="" asp-controller="LoggedInUser" asp-action="UserPermissions">Your Permissions</a>
+                                    <a class="dropdown-item" asp-area="" asp-controller="LoggedInUser" asp-action="Index">Suas claims</a>
+                                    <a class="dropdown-item" asp-area="" asp-controller="LoggedInUser" asp-action="AuthUserInfo">Seus dados</a>
+                                    <a class="dropdown-item" asp-area="" asp-controller="LoggedInUser" asp-action="UserPermissions">Suas Permissões</a>
                                 </div>
                             </li>
                         }
 
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacidade</a>
                         </li>
                         <partial name="_LoginPartial" />
                     </ul>
@@ -104,7 +104,7 @@
 
     <footer class="border-top footer text-muted">
         <div class="container">
-            &copy; 2021 - AuthPermission's Example3 - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+            &copy; 2023 - Multitenant SAAS - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacidade</a>
         </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>

@@ -4,7 +4,7 @@
 @model IEnumerable<ExamplesCommonCode.CommonAdmin.AuthUserDisplay>
 
 @{
-    ViewData["Title"] = "Auth Users";
+    ViewData["Title"] = "Usuários Autorizados";
 }
 
 @if (!string.IsNullOrEmpty(ViewBag.Message))
@@ -12,15 +12,15 @@
     <h3 class="text-success">@ViewBag.Message</h3>
 }
 
-<h1>Auth Users</h1>
+<h1>Usuários Autorizados</h1>
 
 @if (User.HasPermission(Example3Permissions.UserSync))
 {
-    <a asp-action="SyncUsers" class="btn btn-primary">Sync with authentication provider's users</a>
+    <a asp-action="SyncUsers" class="btn btn-primary">Sincronização com os usuários do provedor de autenticação</a>
     <p> </p>
 }
 
-<div><i>NOTE: Extra roles may be applied to a user who is linked to a tenant that has Role's of type @nameof(RoleTypes.TenantAutoAdd) added to the user's tenant.</i></div>
+<div><i>OBSERVAÇÃO: Funções extras podem ser aplicadas a um usuário que esteja vinculado a um locatário que tenha funções do tipo @nameof(RoleTypes.TenantAutoAdd) adicionado ao locatário do usuário.</i></div>
 <br/>
 <table class="table">
     <thead>
@@ -40,11 +40,11 @@
             <th>
                 @if (User.HasPermission(Example3Permissions.UserChange))
                 {
-                    Html.Raw(" Change |");
+                    Html.Raw(" Mudar |");
                 }
                 @if (User.HasPermission(Example3Permissions.UserChange))
                 {
-                    Html.Raw(" Delete");
+                    Html.Raw(" Excluir");
                 }
             </th>
         </tr>
@@ -64,19 +64,19 @@
                 </td>
                 <td>
                     <a href="#" data-toggle="tooltip" title='@item.TenantName'>
-                        @(item.HasTenant ? "YES" : "")
+                        @(item.HasTenant ? "SIM" : "")
                     </a>
                 </td>
                 <td>
                     @if (User.HasPermission(Example3Permissions.UserChange))
                     {
-                        @Html.ActionLink("Edit", "Edit", new { userId = item.UserId });
+                        @Html.ActionLink("Alterar", "Edit", new { userId = item.UserId });
                     }
 
                     @if (User.HasPermission(Example3Permissions.UserRemove))
                     {
                         @Html.Raw(" | ");
-                        @Html.ActionLink("Delete", "Delete", new { UserId = item.UserId })
+                        @Html.ActionLink("Excluir", "Delete", new { UserId = item.UserId })
                     }
                 </td>
             </tr>
