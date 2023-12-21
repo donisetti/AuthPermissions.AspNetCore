@@ -99,4 +99,5 @@ namespace Example3.MvcWebApp.IndividualAccounts.PermissionsCode
             Description = "This allows the user to access every feature", AutoGenerateFilter = true)]
         AccessAll = ushort.MaxValue,
     }
+
 }
