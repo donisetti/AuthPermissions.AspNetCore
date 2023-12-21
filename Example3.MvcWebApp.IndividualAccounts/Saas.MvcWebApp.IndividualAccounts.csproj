@@ -21,7 +21,7 @@
     <ProjectReference Include="..\AuthPermissions.AspNetCore\AuthPermissions.AspNetCore.csproj" />
     <ProjectReference Include="..\AuthPermissions.SupportCode\AuthPermissions.SupportCode.csproj" />
     <ProjectReference Include="..\AuthPermissions\AuthPermissions.csproj" />
-    <ProjectReference Include="..\Example3.InvoiceCode\Example3.InvoiceCode.csproj" />
+    <ProjectReference Include="..\Example3.InvoiceCode\Saas.InvoiceCode.csproj" />
     <ProjectReference Include="..\ExamplesCommonCode\ExamplesCommonCode.csproj" />
   </ItemGroup>
 
