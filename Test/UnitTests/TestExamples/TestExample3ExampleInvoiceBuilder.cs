@@ -1,18 +1,18 @@
 ﻿// Copyright (c) 2023 Jon P Smith, GitHub: JonPSmith, web: http://www.thereformedprogrammer.net/
 // Licensed under MIT license. See License.txt in the project root for license information.
 
-using Example3.InvoiceCode.AppStart;
+using Saas.InvoiceCode.AppStart;
 using Xunit;
 using Xunit.Abstractions;
 using Xunit.Extensions.AssertExtensions;
 
 namespace Test.UnitTests.TestExamples
 {
-    public class TestExample3ExampleInvoiceBuilder
+    public class TestSaasExampleInvoiceBuilder
     {
         private readonly ITestOutputHelper _output;
 
-        public TestExample3ExampleInvoiceBuilder(ITestOutputHelper output)
+        public TestSaasExampleInvoiceBuilder(ITestOutputHelper output)
         {
             _output = output;
         }

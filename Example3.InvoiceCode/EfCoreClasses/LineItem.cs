@@ -3,7 +3,7 @@
 
 using AuthPermissions.BaseCode.CommonCode;
 
-namespace Example3.InvoiceCode.EfCoreClasses
+namespace Saas.InvoiceCode.EfCoreClasses
 {
     public class LineItem : IDataKeyFilterReadWrite
     {

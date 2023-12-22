@@ -1,7 +1,7 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace Example3.InvoiceCode.EfCoreCode.Migrations
+namespace Saas.InvoiceCode.EfCoreCode.Migrations
 {
     public partial class Initial : Migration
     {

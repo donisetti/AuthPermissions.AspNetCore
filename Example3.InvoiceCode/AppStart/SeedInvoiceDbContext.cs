@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 using AuthPermissions.AdminCode;
 using AuthPermissions.BaseCode.CommonCode;
 using AuthPermissions.BaseCode.DataLayer.Classes;
-using Example3.InvoiceCode.EfCoreClasses;
-using Example3.InvoiceCode.EfCoreCode;
+using Saas.InvoiceCode.EfCoreClasses;
+using Saas.InvoiceCode.EfCoreCode;
 
-namespace Example3.InvoiceCode.AppStart;
+namespace Saas.InvoiceCode.AppStart;
 
 public class SeedInvoiceDbContext
 {

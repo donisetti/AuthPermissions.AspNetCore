@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using AuthPermissions;
 using AuthPermissions.AdminCode;
 
-namespace Example3.InvoiceCode.Services;
+namespace Saas.InvoiceCode.Services;
 
 /// <summary>
 /// This adds the tenant name as a claim. This speeds up the showing of the tenant name in the display

@@ -7,10 +7,10 @@ using System.Threading.Tasks;
 using AuthPermissions.AspNetCore.GetDataKeyCode;
 using AuthPermissions.BaseCode.CommonCode;
 using AuthPermissions.BaseCode.DataLayer.EfCode;
-using Example3.InvoiceCode.EfCoreClasses;
+using Saas.InvoiceCode.EfCoreClasses;
 using Microsoft.EntityFrameworkCore;
 
-namespace Example3.InvoiceCode.EfCoreCode
+namespace Saas.InvoiceCode.EfCoreCode
 {
     public class InvoicesDbContext : DbContext, IDataKeyFilterReadOnly
     {

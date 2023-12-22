@@ -10,7 +10,7 @@ using AuthPermissions.BaseCode.CommonCode;
 using AuthPermissions.BaseCode.DataLayer.Classes;
 using AuthPermissions.BaseCode.DataLayer.Classes.SupportTypes;
 
-namespace Example3.MvcWebApp.IndividualAccounts.Models
+namespace Saas.MvcWebApp.IndividualAccounts.Models
 {
     public class SingleLevelTenantDto
     {

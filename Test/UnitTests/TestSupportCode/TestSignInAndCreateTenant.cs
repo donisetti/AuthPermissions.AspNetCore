@@ -9,7 +9,7 @@ using AuthPermissions.BaseCode.DataLayer.EfCode;
 using AuthPermissions.BaseCode.SetupCode;
 using AuthPermissions.BulkLoadServices.Concrete;
 using AuthPermissions.SupportCode.AddUsersServices;
-using Example3.MvcWebApp.IndividualAccounts.PermissionsCode;
+using Saas.MvcWebApp.IndividualAccounts.PermissionsCode;
 using LocalizeMessagesAndErrors.UnitTestingCode;
 using Microsoft.EntityFrameworkCore;
 using Test.StubClasses;
@@ -56,7 +56,7 @@ public class TestSignInAndCreateTenant
     [InlineData("Free", null, "Invoice Creator,Invoice Reader")]
     [InlineData("Pro", "Tenant Admin", "Invoice Creator,Invoice Reader,Tenant Admin")]
     [InlineData("Enterprise", "Enterprise,Tenant Admin", "Invoice Creator,Invoice Reader,Tenant Admin")]
-    public async Task TestAddUserAndNewTenantAsync_Example3Version(string version, string tenantRoles, string adminRoles)
+    public async Task TestAddUserAndNewTenantAsync_SaasVersion(string version, string tenantRoles, string adminRoles)
     {
         //SETUP
         var options = SqliteInMemory.CreateOptions<AuthPermissionsDbContext>();
@@ -64,16 +64,16 @@ public class TestSignInAndCreateTenant
         context.Database.EnsureCreated();
 
         var tuple = CreateISignInAndCreateTenant(context, TenantTypes.SingleLevel);
-        var authSettings = new AuthPermissionsOptions { InternalData = { EnumPermissionsType = typeof(Example3Permissions) } };
+        var authSettings = new AuthPermissionsOptions { InternalData = { EnumPermissionsType = typeof(SaasPermissions) } };
         var rolesSetup = new BulkLoadRolesService(context, authSettings);
-        await rolesSetup.AddRolesToDatabaseAsync(Example3AppAuthSetupData.RolesDefinition);
+        await rolesSetup.AddRolesToDatabaseAsync(SaasAppAuthSetupData.RolesDefinition);
 
         context.ChangeTracker.Clear();
 
         //ATTEMPT
         var userData = new AddNewUserDto{Email = "me!@g1.com"};
         var tenantData = new AddNewTenantDto { TenantName = "New Tenant", Version = version };
-        var status = await tuple.service.SignUpNewTenantWithVersionAsync(userData, tenantData, Example3CreateTenantVersions.TenantSetupData);
+        var status = await tuple.service.SignUpNewTenantWithVersionAsync(userData, tenantData, SaasCreateTenantVersions.TenantSetupData);
 
         //VERIFY
         context.ChangeTracker.Clear();
@@ -135,9 +135,9 @@ public class TestSignInAndCreateTenant
         context.Database.EnsureCreated();
 
         var tuple = CreateISignInAndCreateTenant(context, TenantTypes.SingleLevel | TenantTypes.AddSharding);
-        var authSettings = new AuthPermissionsOptions { InternalData = { EnumPermissionsType = typeof(Example3Permissions) } };
+        var authSettings = new AuthPermissionsOptions { InternalData = { EnumPermissionsType = typeof(SaasPermissions) } };
         var rolesSetup = new BulkLoadRolesService(context, authSettings);
-        await rolesSetup.AddRolesToDatabaseAsync(Example3AppAuthSetupData.RolesDefinition);
+        await rolesSetup.AddRolesToDatabaseAsync(SaasAppAuthSetupData.RolesDefinition);
 
         var userData = new AddNewUserDto { Email = "me!@g1.com" };
         var tenantData = new AddNewTenantDto
@@ -146,7 +146,7 @@ public class TestSignInAndCreateTenant
             Version = "Free",
             HasOwnDb = dtoHasOwnDb,
         };
-        Example3CreateTenantVersions.TenantSetupData.HasOwnDbForEachVersion = new Dictionary<string, bool?>()
+        SaasCreateTenantVersions.TenantSetupData.HasOwnDbForEachVersion = new Dictionary<string, bool?>()
         {
             { "Free", setupHasOwnDb },
         };
@@ -154,7 +154,7 @@ public class TestSignInAndCreateTenant
         context.ChangeTracker.Clear();
 
         //ATTEMPT
-        var status = await tuple.service.SignUpNewTenantWithVersionAsync(userData, tenantData, Example3CreateTenantVersions.TenantSetupData);
+        var status = await tuple.service.SignUpNewTenantWithVersionAsync(userData, tenantData, SaasCreateTenantVersions.TenantSetupData);
 
         //VERIFY
         context.ChangeTracker.Clear();
@@ -173,9 +173,9 @@ public class TestSignInAndCreateTenant
         context.Database.EnsureCreated();
 
         var tuple = CreateISignInAndCreateTenant(context, TenantTypes.SingleLevel);
-        var authSettings = new AuthPermissionsOptions { InternalData = { EnumPermissionsType = typeof(Example3Permissions) } };
+        var authSettings = new AuthPermissionsOptions { InternalData = { EnumPermissionsType = typeof(SaasPermissions) } };
         var rolesSetup = new BulkLoadRolesService(context, authSettings);
-        await rolesSetup.AddRolesToDatabaseAsync(Example3AppAuthSetupData.RolesDefinition);
+        await rolesSetup.AddRolesToDatabaseAsync(SaasAppAuthSetupData.RolesDefinition);
         context.Add(Tenant.CreateSingleTenant("Existing Tenant", new StubDefaultLocalizer()).Result);
         context.SaveChanges();
 
@@ -184,7 +184,7 @@ public class TestSignInAndCreateTenant
         //ATTEMPT
         var userData = new AddNewUserDto { Email = "me!@g1.com" };
         var tenantData = new AddNewTenantDto { TenantName = "Existing Tenant" };
-        var status = await tuple.service.SignUpNewTenantWithVersionAsync(userData, tenantData, Example3CreateTenantVersions.TenantSetupData);
+        var status = await tuple.service.SignUpNewTenantWithVersionAsync(userData, tenantData, SaasCreateTenantVersions.TenantSetupData);
 
         //VERIFY
         context.ChangeTracker.Clear();
@@ -202,9 +202,9 @@ public class TestSignInAndCreateTenant
 
         var getDbCauseError = new StubIGetDatabaseForNewTenant(context,true);
         var tuple = CreateISignInAndCreateTenant(context, TenantTypes.SingleLevel | TenantTypes.AddSharding, getDbCauseError);
-        var authSettings = new AuthPermissionsOptions { InternalData = { EnumPermissionsType = typeof(Example3Permissions) } };
+        var authSettings = new AuthPermissionsOptions { InternalData = { EnumPermissionsType = typeof(SaasPermissions) } };
         var rolesSetup = new BulkLoadRolesService(context, authSettings);
-        await rolesSetup.AddRolesToDatabaseAsync(Example3AppAuthSetupData.RolesDefinition);
+        await rolesSetup.AddRolesToDatabaseAsync(SaasAppAuthSetupData.RolesDefinition);
 
         var userData = new AddNewUserDto { Email = "Me!@g1.com"};
         var tenantData = new AddNewTenantDto
@@ -213,7 +213,7 @@ public class TestSignInAndCreateTenant
             Version = "Free",
             HasOwnDb = true,
         };
-        Example3CreateTenantVersions.TenantSetupData.HasOwnDbForEachVersion = new Dictionary<string, bool?>()
+        SaasCreateTenantVersions.TenantSetupData.HasOwnDbForEachVersion = new Dictionary<string, bool?>()
         {
             { "Free", true },
         };
@@ -221,7 +221,7 @@ public class TestSignInAndCreateTenant
         context.ChangeTracker.Clear();
 
         //ATTEMPT
-        var status = await tuple.service.SignUpNewTenantWithVersionAsync(userData, tenantData, Example3CreateTenantVersions.TenantSetupData);
+        var status = await tuple.service.SignUpNewTenantWithVersionAsync(userData, tenantData, SaasCreateTenantVersions.TenantSetupData);
 
         //VERIFY
         context.ChangeTracker.Clear();
@@ -240,9 +240,9 @@ public class TestSignInAndCreateTenant
         var getDbCauseError = new StubIGetDatabaseForNewTenant(context,false);
         var tuple = CreateISignInAndCreateTenant(context, TenantTypes.SingleLevel | TenantTypes.AddSharding, 
             getDbCauseError, true);
-        var authSettings = new AuthPermissionsOptions { InternalData = { EnumPermissionsType = typeof(Example3Permissions) } };
+        var authSettings = new AuthPermissionsOptions { InternalData = { EnumPermissionsType = typeof(SaasPermissions) } };
         var rolesSetup = new BulkLoadRolesService(context, authSettings);
-        await rolesSetup.AddRolesToDatabaseAsync(Example3AppAuthSetupData.RolesDefinition);
+        await rolesSetup.AddRolesToDatabaseAsync(SaasAppAuthSetupData.RolesDefinition);
 
         var userData = new AddNewUserDto { Email = "me@g.com" };
         var tenantData = new AddNewTenantDto
@@ -251,7 +251,7 @@ public class TestSignInAndCreateTenant
             Version = "Free",
             HasOwnDb = true,
         };
-        Example3CreateTenantVersions.TenantSetupData.HasOwnDbForEachVersion = new Dictionary<string, bool?>()
+        SaasCreateTenantVersions.TenantSetupData.HasOwnDbForEachVersion = new Dictionary<string, bool?>()
         {
             { "Free", true },
         };
@@ -259,7 +259,7 @@ public class TestSignInAndCreateTenant
         context.ChangeTracker.Clear();
 
         //ATTEMPT
-        var status = await tuple.service.SignUpNewTenantWithVersionAsync(userData, tenantData, Example3CreateTenantVersions.TenantSetupData);
+        var status = await tuple.service.SignUpNewTenantWithVersionAsync(userData, tenantData, SaasCreateTenantVersions.TenantSetupData);
 
         //VERIFY
         context.ChangeTracker.Clear();

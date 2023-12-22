@@ -3,12 +3,13 @@ using System.Threading.Tasks;
 using AuthPermissions.AdminCode;
 using AuthPermissions.AspNetCore;
 using AuthPermissions.BaseCode.CommonCode;
-using Example3.MvcWebApp.IndividualAccounts.PermissionsCode;
+using Saas.MvcWebApp.IndividualAccounts.PermissionsCode;
 using ExamplesCommonCode.CommonAdmin;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
-namespace Example3.MvcWebApp.IndividualAccounts.Controllers
+
+namespace Saas.MvcWebApp.IndividualAccounts.Controllers
 {
     public class RolesController : Controller
     {
@@ -19,7 +20,7 @@ namespace Example3.MvcWebApp.IndividualAccounts.Controllers
             _authRolesAdmin = authRolesAdmin;
         }
 
-        [HasPermission(Example3Permissions.RoleRead)]
+        [HasPermission(Permissions.RoleRead)]
         public async Task<IActionResult> Index(string message)
         {
             var userId = User.GetUserIdFromUser();
@@ -33,7 +34,7 @@ namespace Example3.MvcWebApp.IndividualAccounts.Controllers
             return View(permissionDisplay);
         }
 
-        [HasPermission(Example3Permissions.PermissionRead)]
+        [HasPermission(Permissions.PermissionRead)]
         public IActionResult ListPermissions()
         {
             var permissionDisplay = _authRolesAdmin.GetPermissionDisplay(false);
@@ -41,7 +42,7 @@ namespace Example3.MvcWebApp.IndividualAccounts.Controllers
             return View(permissionDisplay);
         }
 
-        [HasPermission(Example3Permissions.RoleChange)]
+        [HasPermission(Permissions.RoleChange)]
         public async Task<IActionResult> Edit(string roleName)
         {
             var userId = User.GetUserIdFromUser();
@@ -52,7 +53,7 @@ namespace Example3.MvcWebApp.IndividualAccounts.Controllers
                 role.PermissionNames, permissionsDisplay, role.RoleType));
         }
 
-        [HasPermission(Example3Permissions.RoleChange)]
+        [HasPermission(Permissions.RoleChange)]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(RoleCreateUpdateDto input)
@@ -67,14 +68,14 @@ namespace Example3.MvcWebApp.IndividualAccounts.Controllers
             return RedirectToAction(nameof(Index), new { message = status.Message });
         }
 
-        [HasPermission(Example3Permissions.RoleChange)]
+        [HasPermission(Permissions.RoleChange)]
         public IActionResult Create()
         {
             var permissionsDisplay = _authRolesAdmin.GetPermissionDisplay(false);
             return View(RoleCreateUpdateDto.SetupForCreateUpdate(null, null, null, permissionsDisplay));
         }
 
-        [HasPermission(Example3Permissions.RoleChange)]
+        [HasPermission(Permissions.RoleChange)]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(RoleCreateUpdateDto input)
@@ -94,14 +95,14 @@ namespace Example3.MvcWebApp.IndividualAccounts.Controllers
             return View((object)errorMessage);
         }
 
-        [HasPermission(Example3Permissions.RoleChange)]
+        [HasPermission(Permissions.RoleChange)]
         public async Task<IActionResult> Delete(string roleName)
         {
 
             return View(await MultiTenantRoleDeleteConfirmDto.FormRoleDeleteConfirmDtoAsync(roleName, _authRolesAdmin));
         }
 
-        [HasPermission(Example3Permissions.RoleChange)]
+        [HasPermission(Permissions.RoleChange)]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Delete(RoleDeleteConfirmDto input)

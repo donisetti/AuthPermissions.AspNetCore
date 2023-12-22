@@ -9,11 +9,11 @@ using AuthPermissions.BaseCode;
 using AuthPermissions.BaseCode.SetupCode;
 using AuthPermissions.SupportCode.AddUsersServices.Authentication;
 using AuthPermissions.SupportCode.AddUsersServices;
-using Example3.InvoiceCode.AppStart;
-using Example3.InvoiceCode.EfCoreCode;
-using Example3.InvoiceCode.Services;
-using Example3.MvcWebApp.IndividualAccounts.Data;
-using Example3.MvcWebApp.IndividualAccounts.PermissionsCode;
+using Saas.InvoiceCode.AppStart;
+using Saas.InvoiceCode.EfCoreCode;
+using Saas.InvoiceCode.Services;
+using Saas.MvcWebApp.IndividualAccounts.Data;
+using Saas.MvcWebApp.IndividualAccounts.PermissionsCode;
 using ExamplesCommonCode.IdentityCookieCode;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Identity;
@@ -42,7 +42,7 @@ builder.Services.ConfigureApplicationCookie(options =>
     options.Events.OnValidatePrincipal = PeriodicCookieEvent.PeriodicRefreshUsersClaims;
 });
 
-builder.Services.RegisterAuthPermissions<Example3Permissions>(options =>
+builder.Services.RegisterAuthPermissions<Permissions>(options =>
 {
     options.TenantType = TenantTypes.SingleLevel;
     options.LinkToTenantType = LinkToTenantTypes.OnlyAppUsers;

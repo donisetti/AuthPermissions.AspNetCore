@@ -7,10 +7,10 @@ using AuthPermissions.AspNetCore.Services;
 using AuthPermissions.AspNetCore.StartupServices;
 using AuthPermissions.BaseCode.SetupCode;
 using Example1.RazorPages.IndividualAccounts.PermissionsCode;
-using Example3.InvoiceCode.AppStart;
-using Example3.InvoiceCode.EfCoreCode;
-using Example3.MvcWebApp.IndividualAccounts.Data;
-using Example3.MvcWebApp.IndividualAccounts.PermissionsCode;
+using Saas.InvoiceCode.AppStart;
+using Saas.InvoiceCode.EfCoreCode;
+using Saas.MvcWebApp.IndividualAccounts.Data;
+using Saas.MvcWebApp.IndividualAccounts.PermissionsCode;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -52,14 +52,14 @@ namespace Test.UnitTests.TestExamples
         }
 
         [Fact]
-        public void TestExample3StartUpWorks()
+        public void TestSaasStartUpWorks()
         {
             //SETUP
             var connectionString = this.GetUniqueDatabaseConnectionString();
             var services = new ServiceCollection();
 
             //ATTEMPT
-            services.RegisterAuthPermissions<Example3Permissions>(options =>
+            services.RegisterAuthPermissions<SaasPermissions>(options =>
                 {
                     options.TenantType = TenantTypes.HierarchicalTenant;
                     options.PathToFolderToLock = TestData.GetTestDataDir();
@@ -68,9 +68,9 @@ namespace Test.UnitTests.TestExamples
                 .UsingEfCoreSqlServer(connectionString)
                 .IndividualAccountsAuthentication()
                 .RegisterTenantChangeService<InvoiceTenantChangeService>()
-                .AddRolesPermissionsIfEmpty(Example3AppAuthSetupData.RolesDefinition)
-                .AddTenantsIfEmpty(Example3AppAuthSetupData.TenantDefinition)
-                .AddAuthUsersIfEmpty(Example3AppAuthSetupData.UsersRolesDefinition)
+                .AddRolesPermissionsIfEmpty(SaasAppAuthSetupData.RolesDefinition)
+                .AddTenantsIfEmpty(SaasAppAuthSetupData.TenantDefinition)
+                .AddAuthUsersIfEmpty(SaasAppAuthSetupData.UsersRolesDefinition)
                 .RegisterFindUserInfoService<IndividualAccountUserLookup>()
                 .RegisterAuthenticationProviderReader<SyncIndividualAccountUsers>()
                 .AddSuperUserToIndividualAccounts()
@@ -80,7 +80,7 @@ namespace Test.UnitTests.TestExamples
         }
 
         [Fact]
-        public async Task TestExample3RunMethodsSequentiallyAsync()
+        public async Task TestSaasRunMethodsSequentiallyAsync()
         {
             //SETUP
             var connectionString = this.GetUniqueDatabaseConnectionString();
@@ -98,19 +98,19 @@ namespace Test.UnitTests.TestExamples
             //Have to manually add IHttpContextAccessor (ASP.NET Core adds this by default)
             builder.Services.AddHttpContextAccessor();
 
-            //Have to manually add configuration, using a copy of the Example3 appsettings.json file (ASP.NET Core adds this by default)
+            //Have to manually add configuration, using a copy of the Saas appsettings.json file (ASP.NET Core adds this by default)
             var configBuilder = new ConfigurationBuilder()
                 .SetBasePath(TestData.GetTestDataDir())
-                .AddJsonFile("example3-appsettings.json", optional: false);
+                .AddJsonFile("Saas-appsettings.json", optional: false);
             builder.Services.AddSingleton<IConfiguration>(configBuilder.Build());
 
-            //Regsiter the Example3 invoice DbContext
+            //Regsiter the Saas invoice DbContext
             builder.Services.AddDbContext<InvoicesDbContext>(options =>
                 options.UseSqlServer(connectionString, dbOptions =>
                 dbOptions.MigrationsHistoryTable("SomeNonDefaultHistoryName")));
 
             //ATTEMPT
-            builder.Services.RegisterAuthPermissions<Example3Permissions>(options =>
+            builder.Services.RegisterAuthPermissions<SaasPermissions>(options =>
             {
                 options.TenantType = TenantTypes.HierarchicalTenant;
                 options.PathToFolderToLock = builder.LockFolderPath;
@@ -119,9 +119,9 @@ namespace Test.UnitTests.TestExamples
                 .UsingEfCoreSqlServer(connectionString)
                 .IndividualAccountsAuthentication()
                 .RegisterTenantChangeService<InvoiceTenantChangeService>()
-                .AddRolesPermissionsIfEmpty(Example3AppAuthSetupData.RolesDefinition)
-                .AddTenantsIfEmpty(Example3AppAuthSetupData.TenantDefinition)
-                .AddAuthUsersIfEmpty(Example3AppAuthSetupData.UsersRolesDefinition)
+                .AddRolesPermissionsIfEmpty(SaasAppAuthSetupData.RolesDefinition)
+                .AddTenantsIfEmpty(SaasAppAuthSetupData.TenantDefinition)
+                .AddAuthUsersIfEmpty(SaasAppAuthSetupData.UsersRolesDefinition)
                 .RegisterFindUserInfoService<IndividualAccountUserLookup>()
                 .RegisterAuthenticationProviderReader<SyncIndividualAccountUsers>()
                 .AddSuperUserToIndividualAccounts()

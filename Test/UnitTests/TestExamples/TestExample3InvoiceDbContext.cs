@@ -2,9 +2,9 @@
 // Licensed under MIT license. See License.txt in the project root for license information.
 
 using AuthPermissions.BaseCode.DataLayer.EfCode;
-using Example3.InvoiceCode.AppStart;
-using Example3.InvoiceCode.EfCoreClasses;
-using Example3.InvoiceCode.EfCoreCode;
+using Saas.InvoiceCode.AppStart;
+using Saas.InvoiceCode.EfCoreClasses;
+using Saas.InvoiceCode.EfCoreCode;
 using Microsoft.EntityFrameworkCore;
 using Test.StubClasses;
 using Test.TestHelpers;
@@ -15,11 +15,11 @@ using Xunit.Extensions.AssertExtensions;
 
 namespace Test.UnitTests.TestExamples
 {
-    public class TestExample3InvoiceDbContext
+    public class TestSaasInvoiceDbContext
     {
         private readonly ITestOutputHelper _output;
 
-        public TestExample3InvoiceDbContext(ITestOutputHelper output)
+        public TestSaasInvoiceDbContext(ITestOutputHelper output)
         {
             _output = output;
         }

@@ -5,12 +5,13 @@ using AuthPermissions.AdminCode;
 using AuthPermissions.AspNetCore;
 using AuthPermissions.BaseCode.CommonCode;
 using AuthPermissions.SupportCode.AddUsersServices;
-using Example3.MvcWebApp.IndividualAccounts.Models;
-using Example3.MvcWebApp.IndividualAccounts.PermissionsCode;
+using Saas.MvcWebApp.IndividualAccounts.Models;
+using Saas.MvcWebApp.IndividualAccounts.PermissionsCode;
 using ExamplesCommonCode.CommonAdmin;
 using Microsoft.EntityFrameworkCore;
+using Saas.MvcWebApp.IndividualAccounts.PermissionsCode;
 
-namespace Example3.MvcWebApp.IndividualAccounts.Controllers
+namespace Saas.MvcWebApp.IndividualAccounts.Controllers
 {
     public class TenantAdminController : Controller
     {
@@ -21,7 +22,7 @@ namespace Example3.MvcWebApp.IndividualAccounts.Controllers
             _authUsersAdmin = authUsersAdmin;
         }
 
-        [HasPermission(Example3Permissions.UserRead)]
+        [HasPermission(Permissions.UserRead)]
         public async Task<IActionResult> Index(string message)
         {
             var dataKey = User.GetAuthDataKeyFromUser();
@@ -33,7 +34,7 @@ namespace Example3.MvcWebApp.IndividualAccounts.Controllers
             return View(usersToShow);
         }
 
-        [HasPermission(Example3Permissions.UserRolesChange)]
+        [HasPermission(Permissions.UserRolesChange)]
         public async Task<ActionResult> EditRoles(string userId)
         {
             var status = await SetupManualUserChange.PrepareForUpdateAsync(userId, _authUsersAdmin);
@@ -46,7 +47,7 @@ namespace Example3.MvcWebApp.IndividualAccounts.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        [HasPermission(Example3Permissions.UserRolesChange)]
+        [HasPermission(Permissions.UserRolesChange)]
         public async Task<ActionResult> EditRoles(SetupManualUserChange change)
         {
             var status = await _authUsersAdmin.UpdateUserAsync(change.UserId,
@@ -60,7 +61,7 @@ namespace Example3.MvcWebApp.IndividualAccounts.Controllers
         }
 
 
-        [HasPermission(Example3Permissions.InviteUsers)]
+        [HasPermission(Permissions.InviteUsers)]
         public async Task<ActionResult> InviteUser([FromServices] IInviteNewUserService inviteService)
         {
             var setupInvite = new InviteUserSetup
@@ -72,7 +73,7 @@ namespace Example3.MvcWebApp.IndividualAccounts.Controllers
             return View(setupInvite);
         }
 
-        [HasPermission(Example3Permissions.InviteUsers)]
+        [HasPermission(Permissions.InviteUsers)]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> InviteUser([FromServices] IInviteNewUserService inviteUserServiceService, InviteUserSetup data)

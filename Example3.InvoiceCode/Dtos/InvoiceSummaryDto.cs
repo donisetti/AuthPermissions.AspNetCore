@@ -3,9 +3,9 @@
 
 using System;
 using System.Linq;
-using Example3.InvoiceCode.EfCoreClasses;
+using Saas.InvoiceCode.EfCoreClasses;
 
-namespace Example3.InvoiceCode.Dtos
+namespace Saas.InvoiceCode.Dtos
 {
     public class InvoiceSummaryDto
     {

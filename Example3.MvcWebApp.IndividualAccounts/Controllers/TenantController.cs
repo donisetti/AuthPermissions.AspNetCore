@@ -4,12 +4,12 @@ using AuthPermissions.AdminCode;
 using AuthPermissions.AspNetCore;
 using AuthPermissions.AspNetCore.AccessTenantData;
 using AuthPermissions.BaseCode.CommonCode;
-using Example3.MvcWebApp.IndividualAccounts.Models;
-using Example3.MvcWebApp.IndividualAccounts.PermissionsCode;
+using Saas.MvcWebApp.IndividualAccounts.Models;
+using Saas.MvcWebApp.IndividualAccounts.PermissionsCode;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
-namespace Example3.MvcWebApp.IndividualAccounts.Controllers
+namespace Saas.MvcWebApp.IndividualAccounts.Controllers
 {
     public class TenantController : Controller
     {
@@ -20,7 +20,7 @@ namespace Example3.MvcWebApp.IndividualAccounts.Controllers
             _authTenantAdmin = authTenantAdmin;
         }
 
-        [HasPermission(Example3Permissions.TenantList)]
+        [HasPermission(Permissions.TenantList)]
         public async Task<IActionResult> Index(string message)
         {
             var tenantNames = await SingleLevelTenantDto.TurnIntoDisplayFormat( _authTenantAdmin.QueryTenants())
@@ -32,7 +32,7 @@ namespace Example3.MvcWebApp.IndividualAccounts.Controllers
             return View(tenantNames);
         }
 
-        [HasPermission(Example3Permissions.TenantCreate)]
+        [HasPermission(Permissions.TenantCreate)]
         public async Task<IActionResult> Create()
         {
             return View(new SingleLevelTenantDto { AllPossibleRoleNames = await _authTenantAdmin.GetRoleNamesForTenantsAsync() });
@@ -40,7 +40,7 @@ namespace Example3.MvcWebApp.IndividualAccounts.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        [HasPermission(Example3Permissions.TenantCreate)]
+        [HasPermission(Permissions.TenantCreate)]
         public async Task<IActionResult> Create(SingleLevelTenantDto input)
         {
             var status = await _authTenantAdmin.AddSingleTenantAsync(input.TenantName, input.TenantRolesName);
@@ -51,7 +51,7 @@ namespace Example3.MvcWebApp.IndividualAccounts.Controllers
                 : RedirectToAction(nameof(Index), new { message = status.Message });
         }
 
-        [HasPermission(Example3Permissions.TenantUpdate)]
+        [HasPermission(Permissions.TenantUpdate)]
         public async Task<IActionResult> Edit(int id)
         {
             return View(await SingleLevelTenantDto.SetupForUpdateAsync(_authTenantAdmin, id));
@@ -59,7 +59,7 @@ namespace Example3.MvcWebApp.IndividualAccounts.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        [HasPermission(Example3Permissions.TenantUpdate)]
+        [HasPermission(Permissions.TenantUpdate)]
         public async Task<IActionResult> Edit(SingleLevelTenantDto input)
         {
             var status = await _authTenantAdmin
@@ -72,7 +72,7 @@ namespace Example3.MvcWebApp.IndividualAccounts.Controllers
         }
 
 
-        [HasPermission(Example3Permissions.TenantDelete)]
+        [HasPermission(Permissions.TenantDelete)]
         public async Task<IActionResult> Delete(int id)
         {
             var status = await _authTenantAdmin.GetTenantViaIdAsync(id);
@@ -89,7 +89,7 @@ namespace Example3.MvcWebApp.IndividualAccounts.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        [HasPermission(Example3Permissions.TenantDelete)]
+        [HasPermission(Permissions.TenantDelete)]
         public async Task<IActionResult> Delete(SingleLevelTenantDto input)
         {
             var status = await _authTenantAdmin.DeleteTenantAsync(input.TenantId);
@@ -100,7 +100,7 @@ namespace Example3.MvcWebApp.IndividualAccounts.Controllers
                 : RedirectToAction(nameof(Index), new { message = status.Message });
         }
 
-        [HasPermission(Example3Permissions.TenantAccessData)]
+        [HasPermission(Permissions.TenantAccessData)]
         public async Task<IActionResult> StartAccess([FromServices] ILinkToTenantDataService service, int id)
         {
             var currentUser = User.GetUserIdFromUser();

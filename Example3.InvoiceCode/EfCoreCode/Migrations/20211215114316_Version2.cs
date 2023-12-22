@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
-namespace Example3.InvoiceCode.EfCoreCode.Migrations
+namespace Saas.InvoiceCode.EfCoreCode.Migrations
 {
     public partial class Version2 : Migration
     {

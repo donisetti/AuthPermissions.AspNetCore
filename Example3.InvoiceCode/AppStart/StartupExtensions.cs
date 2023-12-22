@@ -1,13 +1,13 @@
 ﻿// Copyright (c) 2021 Jon P Smith, GitHub: JonPSmith, web: http://www.thereformedprogrammer.net/
 // Licensed under MIT license. See License.txt in the project root for license information.
 
-using Example3.InvoiceCode.EfCoreCode;
+using Saas.InvoiceCode.EfCoreCode;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using NetCore.AutoRegisterDi;
 
-namespace Example3.InvoiceCode.AppStart
+namespace Saas.InvoiceCode.AppStart
 {
     public static class StartupExtensions
     {

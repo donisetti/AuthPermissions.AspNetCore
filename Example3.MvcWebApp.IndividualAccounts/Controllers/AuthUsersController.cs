@@ -5,11 +5,12 @@ using System.Threading.Tasks;
 using AuthPermissions.AdminCode;
 using AuthPermissions.AspNetCore;
 using AuthPermissions.BaseCode.CommonCode;
-using Example3.MvcWebApp.IndividualAccounts.Models;
-using Example3.MvcWebApp.IndividualAccounts.PermissionsCode;
+using Saas.MvcWebApp.IndividualAccounts.Models;
+using Saas.MvcWebApp.IndividualAccounts.PermissionsCode;
 using ExamplesCommonCode.CommonAdmin;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Saas.MvcWebApp.IndividualAccounts.PermissionsCode;
 
 namespace Example3.MvcWebApp.IndividualAccounts.Controllers
 {
@@ -35,7 +36,7 @@ namespace Example3.MvcWebApp.IndividualAccounts.Controllers
             return View(usersToShow);
         }
 
-        [HasPermission(Example3Permissions.UserChange)]
+        [HasPermission(Permissions.UserChange)]
         public async Task<ActionResult> Edit(string userId)
         {
             var status = await SetupManualUserChange.PrepareForUpdateAsync(userId,_authUsersAdmin);
@@ -48,7 +49,7 @@ namespace Example3.MvcWebApp.IndividualAccounts.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        [HasPermission(Example3Permissions.UserChange)]
+        [HasPermission(Permissions.UserChange)]
         public async Task<ActionResult> Edit(SetupManualUserChange change)
         {
             var status = await _authUsersAdmin.UpdateUserAsync(change.UserId,
@@ -61,7 +62,7 @@ namespace Example3.MvcWebApp.IndividualAccounts.Controllers
             return RedirectToAction(nameof(Index), new { message = status.Message });
         }
 
-        [HasPermission(Example3Permissions.UserSync)]
+        [HasPermission(Permissions.UserSync)]
         public async Task<ActionResult> SyncUsers()
         {
             var syncChanges = await _authUsersAdmin.SyncAndShowChangesAsync();
@@ -70,7 +71,7 @@ namespace Example3.MvcWebApp.IndividualAccounts.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        [HasPermission(Example3Permissions.UserSync)]
+        [HasPermission(Permissions.UserSync)]
         //NOTE: the input be called "data" because we are using JavaScript to send that info back
         public async Task<ActionResult> SyncUsers(IEnumerable<SyncAuthUserWithChange> data)
         {
@@ -83,7 +84,7 @@ namespace Example3.MvcWebApp.IndividualAccounts.Controllers
         }
 
         // GET: AuthUsersController/Delete/5
-        [HasPermission(Example3Permissions.UserRemove)]
+        [HasPermission(Permissions.UserRemove)]
         public async Task<ActionResult> Delete(string userId)
         {
             var status = await _authUsersAdmin.FindAuthUserByUserIdAsync(userId);
@@ -97,7 +98,7 @@ namespace Example3.MvcWebApp.IndividualAccounts.Controllers
         // POST: AuthUsersController/Delete/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        [HasPermission(Example3Permissions.UserRemove)]
+        [HasPermission(Permissions.UserRemove)]
         public async Task<ActionResult> Delete(AuthIdAndChange input)
         {
             var status = await _authUsersAdmin.DeleteUserAsync(input.UserId);

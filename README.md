@@ -46,7 +46,7 @@ See the video [Improving JWT Token Security](https://www.youtube.com/watch?v=Dtf
 
 _NOTE: When running this example and you want to login you must run one of the authentication login WebAPIs and then copy the just the JWT Token string in into Swagger's Authorize box. Also, the default lifetime of the JWT Token is 5 minutes, so you wll get logged out quickly (this is done to check the AuthP's JWT refresh feature)._
 
-### Example3 - Single level multi-tenant application
+### Saas - Single level multi-tenant application
 
 This is a ASP.NET Core MVC application using the Individual Accounts authentication provider with Cookie authentication. Look at this example for:
 

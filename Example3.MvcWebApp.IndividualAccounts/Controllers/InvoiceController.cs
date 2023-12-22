@@ -5,15 +5,15 @@ using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 using AuthPermissions.AspNetCore;
 using AuthPermissions.BaseCode.PermissionsCode;
-using Example3.InvoiceCode.AppStart;
-using Example3.InvoiceCode.Dtos;
-using Example3.InvoiceCode.EfCoreClasses;
-using Example3.InvoiceCode.EfCoreCode;
-using Example3.InvoiceCode.Services;
-using Example3.MvcWebApp.IndividualAccounts.PermissionsCode;
+using Saas.InvoiceCode.AppStart;
+using Saas.InvoiceCode.Dtos;
+using Saas.InvoiceCode.EfCoreClasses;
+using Saas.InvoiceCode.EfCoreCode;
+using Saas.InvoiceCode.Services;
+using Saas.MvcWebApp.IndividualAccounts.PermissionsCode;
 using Microsoft.EntityFrameworkCore;
 
-namespace Example3.MvcWebApp.IndividualAccounts.Controllers
+namespace Saas.MvcWebApp.IndividualAccounts.Controllers
 {
     public class InvoiceController : Controller
     {
@@ -28,7 +28,7 @@ namespace Example3.MvcWebApp.IndividualAccounts.Controllers
         {
             ViewBag.Message = message;
 
-            var listInvoices = User.HasPermission(Example3Permissions.InvoiceRead)
+            var listInvoices = User.HasPermission(Permissions.InvoiceRead)
                 ? await InvoiceSummaryDto.SelectInvoices(_context.Invoices)
                     .OrderByDescending(x => x.DateCreated)
                     .ToListAsync()
@@ -36,7 +36,7 @@ namespace Example3.MvcWebApp.IndividualAccounts.Controllers
             return View(listInvoices);
         }
 
-        [HasPermission(Example3Permissions.InvoiceCreate)]
+        [HasPermission(Permissions.InvoiceCreate)]
         public IActionResult CreateInvoice()
         {
             return View();
@@ -44,7 +44,7 @@ namespace Example3.MvcWebApp.IndividualAccounts.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        [HasPermission(Example3Permissions.InvoiceCreate)]
+        [HasPermission(Permissions.InvoiceCreate)]
         public async Task<IActionResult> CreateInvoice(Invoice invoice)
         {
             var builder = new ExampleInvoiceBuilder(null);

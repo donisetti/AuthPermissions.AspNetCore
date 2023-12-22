@@ -9,10 +9,10 @@ using AuthPermissions.BaseCode.DataLayer.EfCode;
 using AuthPermissions.BaseCode.SetupCode;
 using AuthPermissions.SupportCode.AddUsersServices;
 using AuthPermissions.SupportCode.AddUsersServices.Authentication;
-using Example3.InvoiceCode.AppStart;
-using Example3.InvoiceCode.EfCoreCode;
-using Example3.MvcWebApp.IndividualAccounts.Data;
-using Example3.MvcWebApp.IndividualAccounts.PermissionsCode;
+using Saas.InvoiceCode.AppStart;
+using Saas.InvoiceCode.EfCoreCode;
+using Saas.MvcWebApp.IndividualAccounts.Data;
+using Saas.MvcWebApp.IndividualAccounts.PermissionsCode;
 using LocalizeMessagesAndErrors;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -58,7 +58,7 @@ public class TestIndividualUserAddUserManager
         services.AddSingleton(typeof(IDefaultLocalizer<>), typeof(DefaultLocalizer<>));
 
         services.AddSingleton("en".SetupAuthPLoggingLocalizer());
-        services.RegisterAuthPermissions<Example3Permissions>(options =>
+        services.RegisterAuthPermissions<SaasPermissions>(options =>
         {
             options.TenantType = TenantTypes.SingleLevel;
             options.EncryptionKey = "asffrwedsffsgxcvwc";

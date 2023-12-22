@@ -5,7 +5,7 @@ using System.Linq;
 using AuthPermissions.BaseCode.CommonCode;
 using Microsoft.EntityFrameworkCore;
 
-namespace Example3.InvoiceCode.EfCoreCode
+namespace Saas.InvoiceCode.EfCoreCode
 {
     public static class MarkDataKeyExtension
     {

@@ -20,7 +20,7 @@ Here are the main changes:
 
 ### 1. Remove `GetNewInstanceOfAppContext` method and use dependency injection (DI)
 
-The new approach to obtaining a instance of your application's DbContext is to use DI injection via the class's constructor. This removes the need for the  `GetNewInstanceOfAppContext` method. See the code below from Example3 shows how to inject the application's DbContext using DI - NOTE: The logger is optional - I use it to log any problems in my code.
+The new approach to obtaining a instance of your application's DbContext is to use DI injection via the class's constructor. This removes the need for the  `GetNewInstanceOfAppContext` method. See the code below from Saas shows how to inject the application's DbContext using DI - NOTE: The logger is optional - I use it to log any problems in my code.
 
 **NOTE:** The documentation contains a page called [Building a tenant change service](https://github.com/JonPSmith/AuthPermissions.AspNetCore/wiki/Building-a-tenant-change-service) that you might like to look at.
 
@@ -53,7 +53,7 @@ Every method in the [`ITenantChangeService`](https://github.com/JonPSmith/AuthPe
 
 If you want to update one of your tenant change service I recommend you look at updated tenant change in the main branch, which have been updated to the version 3 design.
 
-- For a single-level multi-tenant have look at Example3s [InvoiceTenantChangeService](https://github.com/JonPSmith/AuthPermissions.AspNetCore/blob/main/Example3.InvoiceCode/EfCoreCode/InvoiceTenantChangeService.cs).
+- For a single-level multi-tenant have look at Saass [InvoiceTenantChangeService](https://github.com/JonPSmith/AuthPermissions.AspNetCore/blob/main/Saas.InvoiceCode/EfCoreCode/InvoiceTenantChangeService.cs).
 - For a hierarchical multi-tenant have look at Example4, [RetailTenantChangeService](https://github.com/JonPSmith/AuthPermissions.AspNetCore/blob/main/Example4.ShopCode/EfCoreCode/RetailTenantChangeService.cs).
 - For the single-level + sharding multi-tenant version look at [ShardingTenantChangeService](https://github.com/JonPSmith/AuthPermissions.AspNetCore/blob/main/Example6.SingleLevelSharding/EfCoreCode/ShardingTenantChangeService.cs)
 
@@ -61,7 +61,7 @@ If you want to update one of your tenant change service I recommend you look at 
 
 Previously the AuthP's tenant admin service created a transaction that covered both the update to the AuthP's DbContext and your application's DbContext. In the new design you have to add a transaction **if you have multiple, separate updates** to the database. This stops the possibility a partial update where of some updates have been applied, but an error happens during later updates. That could mean some data was lost.
 
-For instance, in Example3's tenant change service it uses a transaction in the Delete code because that code uses multiple  `ExecuteSqlRawAsync` and a call to `SaveChangesAsync` - see the `SingleTenantDeleteAsync` in the [InvoiceTenantChangeService](https://github.com/JonPSmith/AuthPermissions.AspNetCore/blob/main/Example3.InvoiceCode/EfCoreCode/InvoiceTenantChangeService.cs) class for an example of that.
+For instance, in Saas's tenant change service it uses a transaction in the Delete code because that code uses multiple  `ExecuteSqlRawAsync` and a call to `SaveChangesAsync` - see the `SingleTenantDeleteAsync` in the [InvoiceTenantChangeService](https://github.com/JonPSmith/AuthPermissions.AspNetCore/blob/main/Saas.InvoiceCode/EfCoreCode/InvoiceTenantChangeService.cs) class for an example of that.
 
 In a hierarchical multi-tenant application you will now have multiple tenants to delete or move, and all those changes should be done within one transaction - see the [RetailTenantChangeService](https://github.com/JonPSmith/AuthPermissions.AspNetCore/blob/main/Example4.ShopCode/EfCoreCode/RetailTenantChangeService.cs) example for how this is done.
 

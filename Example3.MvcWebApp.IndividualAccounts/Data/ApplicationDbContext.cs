@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
-namespace Example3.MvcWebApp.IndividualAccounts.Data
+namespace Saas.MvcWebApp.IndividualAccounts.Data
 {
     public class ApplicationDbContext : IdentityDbContext
     {

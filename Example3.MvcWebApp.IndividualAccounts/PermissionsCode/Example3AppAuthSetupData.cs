@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using AuthPermissions.BaseCode.DataLayer.Classes.SupportTypes;
 using AuthPermissions.BaseCode.SetupCode;
 
-namespace Example3.MvcWebApp.IndividualAccounts.PermissionsCode
+namespace Saas.MvcWebApp.IndividualAccounts.PermissionsCode
 {
     public static class Example3AppAuthSetupData
     {

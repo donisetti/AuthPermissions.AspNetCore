@@ -3,7 +3,7 @@
 
 using AuthPermissions.AdminCode;
 
-namespace Example3.MvcWebApp.IndividualAccounts.Models
+namespace Saas.MvcWebApp.IndividualAccounts.Models
 {
     public class AuthIdAndChange
     {

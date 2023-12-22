@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using AuthPermissions.BaseCode.CommonCode;
 
-namespace Example3.InvoiceCode.EfCoreClasses
+namespace Saas.InvoiceCode.EfCoreClasses
 {
     public class Invoice : IDataKeyFilterReadWrite
     {

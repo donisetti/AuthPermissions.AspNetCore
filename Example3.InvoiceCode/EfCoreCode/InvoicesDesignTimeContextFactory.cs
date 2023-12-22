@@ -1,11 +1,11 @@
 ﻿// Copyright (c) 2021 Jon P Smith, GitHub: JonPSmith, web: http://www.thereformedprogrammer.net/
 // Licensed under MIT license. See License.txt in the project root for license information.
 
-using Example3.InvoiceCode.AppStart;
+using Saas.InvoiceCode.AppStart;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Design;
 
-namespace Example3.InvoiceCode.EfCoreCode
+namespace Saas.InvoiceCode.EfCoreCode
 {
     public class InvoicesDesignTimeContextFactory : IDesignTimeDbContextFactory<InvoicesDbContext>          
     {

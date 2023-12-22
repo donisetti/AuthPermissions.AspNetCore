@@ -4,9 +4,9 @@
 using System.Collections.Generic;
 using AuthPermissions.SupportCode.AddUsersServices;
 
-namespace Example3.MvcWebApp.IndividualAccounts.PermissionsCode;
+namespace Saas.MvcWebApp.IndividualAccounts.PermissionsCode;
 
-public static class Example3CreateTenantVersions
+public static class CreateTenantVersions
 {
     public static readonly MultiTenantVersionData TenantSetupData = new()
     {

@@ -1,14 +1,14 @@
-﻿using Example3.MvcWebApp.IndividualAccounts.Models;
+﻿using Saas.MvcWebApp.IndividualAccounts.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System.Diagnostics;
 using System.Threading.Tasks;
 using AuthPermissions.SupportCode.AddUsersServices;
-using Example3.InvoiceCode.Services;
-using Example3.MvcWebApp.IndividualAccounts.PermissionsCode;
+using Saas.InvoiceCode.Services;
+using Saas.MvcWebApp.IndividualAccounts.PermissionsCode;
 using Microsoft.AspNetCore.Authorization;
 
-namespace Example3.MvcWebApp.IndividualAccounts.Controllers
+namespace Saas.MvcWebApp.IndividualAccounts.Controllers
 {
     public class HomeController : Controller
     {
@@ -46,7 +46,7 @@ namespace Example3.MvcWebApp.IndividualAccounts.Controllers
             var newUserData = new AddNewUserDto { Email = email, Password = password, IsPersistent = isPersistent};
             var newTenantData = new AddNewTenantDto { TenantName = tenantName, Version = version };
             var status = await userRegisterInvite.SignUpNewTenantWithVersionAsync(newUserData, newTenantData,
-                Example3CreateTenantVersions.TenantSetupData);
+                CreateTenantVersions.TenantSetupData);
             if (status.HasErrors)
                 return RedirectToAction(nameof(ErrorDisplay),
                     new { errorMessage = status.GetAllErrors() });

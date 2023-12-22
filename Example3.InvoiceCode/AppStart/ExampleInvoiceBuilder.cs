@@ -3,10 +3,10 @@
 
 using System;
 using System.Collections.Generic;
-using Example3.InvoiceCode.EfCoreClasses;
-using Example3.InvoiceCode.EfCoreCode;
+using Saas.InvoiceCode.EfCoreClasses;
+using Saas.InvoiceCode.EfCoreCode;
 
-namespace Example3.InvoiceCode.AppStart;
+namespace Saas.InvoiceCode.AppStart;
 
 public enum ExampleInvoiceTypes { Computer = 0, Office = 1, Travel = 2 }
 

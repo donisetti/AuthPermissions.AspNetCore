@@ -11,11 +11,11 @@ using AuthPermissions.AspNetCore.ShardingServices;
 using AuthPermissions.BaseCode;
 using AuthPermissions.BaseCode.CommonCode;
 using AuthPermissions.BaseCode.DataLayer.Classes;
-using Example3.InvoiceCode.EfCoreClasses;
+using Saas.InvoiceCode.EfCoreClasses;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 
-namespace Example3.InvoiceCode.EfCoreCode
+namespace Saas.InvoiceCode.EfCoreCode
 {
     public class InvoiceTenantChangeService : ITenantChangeService
     {

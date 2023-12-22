@@ -86,10 +86,10 @@ In cases where you want to migrate and/or seed your own database on startup, the
 - If you want to run EF Core's `Migrate` method on startup, then there is the  [`StartupServiceMigrateAnyDbContext<TContext>`](https://github.com/JonPSmith/AuthPermissions.AspNetCore/blob/main/AuthPermissions.AspNetCore/StartupServices/StartupServiceMigrateAnyDbContext.cs) class that can do that for you.
 - If you want to run method on startup, say to seed a database, then you need to create a class that inherits the [`IStartupServiceToRunSequentially`](https://github.com/JonPSmith/RunStartupMethodsSequentially/blob/main/RunMethodsSequentially/IStartupServiceToRunSequentially.cs) interface. 
 
-The code below is taken from [Example3's Startup class](https://github.com/JonPSmith/AuthPermissions.AspNetCore/blob/main/Example3.MvcWebApp.IndividualAccounts/Startup.cs) and shows the `SetupAspNetCoreAndDatabase` method where you can add four extra _startup services_ that will be run on startup.
+The code below is taken from [Saas's Startup class](https://github.com/JonPSmith/AuthPermissions.AspNetCore/blob/main/Saas.MvcWebApp.IndividualAccounts/Startup.cs) and shows the `SetupAspNetCoreAndDatabase` method where you can add four extra _startup services_ that will be run on startup.
 
 ```c#
-services.RegisterAuthPermissions<Example3Permissions>(options =>
+services.RegisterAuthPermissions<SaasPermissions>(options =>
     {
         options.TenantType = TenantTypes.SingleLevel;
         options.AppConnectionString = connectionString;
@@ -99,9 +99,9 @@ services.RegisterAuthPermissions<Example3Permissions>(options =>
     .UsingEfCoreSqlServer(connectionString)
     .IndividualAccountsAuthentication()
     .RegisterTenantChangeService<InvoiceTenantChangeService>()
-    .AddRolesPermissionsIfEmpty(Example3AppAuthSetupData.RolesDefinition)
-    .AddTenantsIfEmpty(Example3AppAuthSetupData.TenantDefinition)
-    .AddAuthUsersIfEmpty(Example3AppAuthSetupData.UsersRolesDefinition)
+    .AddRolesPermissionsIfEmpty(SaasAppAuthSetupData.RolesDefinition)
+    .AddTenantsIfEmpty(SaasAppAuthSetupData.TenantDefinition)
+    .AddAuthUsersIfEmpty(SaasAppAuthSetupData.UsersRolesDefinition)
     .RegisterFindUserInfoService<IndividualAccountUserLookup>()
     .RegisterAuthenticationProviderReader<SyncIndividualAccountUsers>()
     .AddSuperUserToIndividualAccounts()
@@ -128,7 +128,7 @@ Version 2 has a number of new features around Roles and Tenants which required e
 1. For Roles you need to use a list of [`BulkLoadRolesDto`](https://github.com/JonPSmith/AuthPermissions.AspNetCore/blob/main/AuthPermissions/SetupCode/BulkLoadRolesDto.cs) classes instead of a string.
 2. For Tenants you need to use a list of [`BulkLoadTenantDto`](https://github.com/JonPSmith/AuthPermissions.AspNetCore/blob/main/AuthPermissions/SetupCode/BulkLoadTenantDto.cs) classes instead of a string.
 
-The code shown below is the Version 2 setup of [Roles and Tenants in Example3](https://github.com/JonPSmith/AuthPermissions.AspNetCore/blob/main/Example3.MvcWebApp.IndividualAccounts/PermissionsCode/Example3AppAuthSetupData.cs) that matches the Version 1 setup of  [Roles and Tenants in Example3](https://github.com/JonPSmith/AuthPermissions.AspNetCore/blob/Version1/Example3.MvcWebApp.IndividualAccounts/PermissionsCode/Example3AppAuthSetupData.cs).
+The code shown below is the Version 2 setup of [Roles and Tenants in Saas](https://github.com/JonPSmith/AuthPermissions.AspNetCore/blob/main/Saas.MvcWebApp.IndividualAccounts/PermissionsCode/SaasAppAuthSetupData.cs) that matches the Version 1 setup of  [Roles and Tenants in Saas](https://github.com/JonPSmith/AuthPermissions.AspNetCore/blob/Version1/Saas.MvcWebApp.IndividualAccounts/PermissionsCode/SaasAppAuthSetupData.cs).
 
 ```c#
 public static readonly List<BulkLoadRolesDto> RolesDefinition = new List<BulkLoadRolesDto>()
@@ -202,7 +202,7 @@ _NOTE: The `UpdateToVersion2DataKeyFormat` method changes the `DataKey` string t
 
 ## MULTI-TENANT BREAKING CHANGE: The `QueryRoleToPermissions` needs a userId
 
-In Version 2 the Roles that a Tenant Admin can see has changed, so in multi-tenant applications you now need to provide the Id of the logged-in user. This is pretty easy as shown in the code taken for [Example3's RoleController](https://github.com/JonPSmith/AuthPermissions.AspNetCore/blob/main/Example3.MvcWebApp.IndividualAccounts/Controllers/RolesController.cs).
+In Version 2 the Roles that a Tenant Admin can see has changed, so in multi-tenant applications you now need to provide the Id of the logged-in user. This is pretty easy as shown in the code taken for [Saas's RoleController](https://github.com/JonPSmith/AuthPermissions.AspNetCore/blob/main/Saas.MvcWebApp.IndividualAccounts/Controllers/RolesController.cs).
 
 ```c#
 [HasPermission(Example4Permissions.RoleRead)]

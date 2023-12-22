@@ -3,7 +3,7 @@
 
 using System;
 
-namespace Example3.InvoiceCode.Dtos;
+namespace Saas.InvoiceCode.Dtos;
 
 public class CreateTenantDto
 {

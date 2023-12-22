@@ -11,14 +11,14 @@ namespace AuthPermissions.BaseCode.DataLayer.EfCode
 {
     /// <summary>
     /// Contains code to allow you to automate the adding of a multi-tenant query filter to your application's DbContext
-    /// See Example3.InvoiceCode and Example4.ShopCode projects with the two types of multi-tenant: single and hierarchical
+    /// See Saas.InvoiceCode and Example4.ShopCode projects with the two types of multi-tenant: single and hierarchical
     /// This more secure as you can't forget to add a multi-tenant query filter, which would let anyone access that data
     /// </summary>
     public static class DataKeyQueryExtension
     {
         /// <summary>
         /// This method will set up a single level tenant query filter exact match query filter
-        /// See the Example3.InvoiceCode project with its single level multi-tenant database (InvoiceDbContext)
+        /// See the Saas.InvoiceCode project with its single level multi-tenant database (InvoiceDbContext)
         /// </summary>
         /// <param name="entityData"></param>
         /// <param name="dataKey"></param>
