@@ -1,0 +1,45 @@
+﻿@*<br />
+<img src="~/images/adminarea.jpg" alt="Àrea de Administração" class="marginTop1" />
+<div class="container">
+    <div class="jumbotron">
+        <p>
+            <h2>Administrador</h2>
+        </p>
+    </div>
+    <a asp-area="" asp-controller="Home" asp-action="Index">Volta ao principal</a>
+</div>*@
+
+@{
+}
+
+<div class="text-center">
+
+
+<div class="text-center">
+    <h2 class="display-4">BIO CENTRO</h2>
+    <h6>@ViewBag.Versao - @ViewBag.Data</h6>
+
+    <picture>
+        <source media="(max-width: 750px)" srcset="~/images/adminarea.jpg" />
+        <source media="(max-width: 1050px)" srcset="~/images/adminarea.jpg" />
+
+
+
+
+        @*<img src="~/images/pgc-300.png" style="height: 400px" />*@
+        <img src="~/images/adminarea.jpg" style="height: 400px" />
+
+    </picture>
+
+
+    <div class="">
+
+
+        @if (@ViewBag.Ambiente != "Produção")
+        {
+
+            <h6>@ViewBag.Servidor - @ViewBag.BancoDados - @ViewBag.Ambiente </h6>
+        }
+    </div>
+</div>
+

@@ -1,0 +1,36 @@
+﻿@* DEMO: Exemplo: Day gridViews *@
+
+<link href="~/css/fullcalendar.css" rel="stylesheet" />
+<link href="~/css/agendamento.css" rel="stylesheet" />
+<script src="~/js/popper.js/dist/umd/popper.min.js"></script>
+<script src="~/js/tooltip.js/dist/umd/tooltip.min.js"></script>
+<script src="~/js/Agendamento.js"></script>
+
+<div class="text-center">
+
+    @if (ViewBag.Role == "Profissional")
+    {
+        <h2>AGENDAMENTOS DO PROFISSIONAL</h2>
+       
+    }
+
+
+    @if (ViewBag.Role == "Geral")
+    {
+        <h2>AGENDAMENTOS GERAL</h2>
+       
+    }
+    <div id='calendar'></div>
+
+    @await Html.PartialAsync("_form-modal")
+
+    @*  
+
+    @await Html.PartialAsync("_Visualizar")
+    @await Html.PartialAsync("_Cadastrar")
+
+    *@
+
+
+</div>
+

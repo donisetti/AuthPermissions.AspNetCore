@@ -1,0 +1,24 @@
+﻿@model Facil.Aplicacao.DTOs.FuncionarioDTO
+
+@{
+    ViewData["Title"] = "Alterar Funcionário";
+}
+
+@await Html.PartialAsync("_Cadastro_Cabecalho")
+
+<form asp-action="Edit">
+
+    <div class="container">
+
+        @await Html.PartialAsync("_DadosFuncionario")
+
+        <div class="form-group">
+            <input type="submit" value="Alterar" class="btn btn-primary" />
+        </div>
+
+    </div>
+
+</form>
+
+
+

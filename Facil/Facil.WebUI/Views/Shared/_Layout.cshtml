@@ -1,0 +1,94 @@
+﻿<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - MeuFacil</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link href="https://cdn.datatables.net/v/bs5/dt-1.13.3/b-2.3.5/datatables.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+
+    <link href="~/lib/font-awesome/css/all.min.css" rel="stylesheet" />
+
+    <!--Full Calendar Scripts-->
+    <script src="~/js/fullcalendar/index.global.js"></script>
+  
+   
+
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-light bg-white border-bottom box-shadow mb-3">
+            <div class="container">
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">
+                    @*<img src="~/images/iconpn.png" style="height: 60px" />*@
+                    <img src="~/images/bio-home.png" style="height: 60px"/>
+                </a>
+
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse justify-content-between" id="navbarNav">
+                    <span class="col-md-3">
+
+                    </span>
+
+                    @if (User.IsInRole("Admin"))
+                    {
+                        <span class="col-md-3">
+                            @await Html.PartialAsync("_MenuAdministrador")
+                        </span>
+                    }
+                    else
+                    {
+                        <span class="col-md-3">
+                            @await Html.PartialAsync("_MenuPrincipal")
+                        </span>
+                    }
+
+                    <span class="col-md-3">
+
+                    </span>
+
+                   
+
+                </div>
+
+                <span class="col-md-3">
+                    <ul class="navbar-nav ml-auto">
+                        @await Html.PartialAsync("_LoginPartial")
+                    </ul>
+                </span>
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            <span style="float:left;"> &copy; 2023 - V.A. Sistemas, Todos os direitos reservados.</span>
+
+            <span style="float:right;"> <a asp-area="" asp-controller="Home" asp-action="Privacy">Termos de Uso e Política privacidade</a></span>
+
+            <span style="float:right;">Versão: 1.0.0 👈 _</span>
+
+        </div>
+    </footer>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    @*<script src="https://cdn.datatables.net/v/dt/dt-1.13.3/datatables.min.js"></script>*@
+    <script src="https://cdn.datatables.net/v/bs5/dt-1.13.3/b-2.3.5/datatables.min.js"></script>
+  
+   
+    
+
+    <script src="~/js/site.js" asp-append-version="true"></script>
+
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

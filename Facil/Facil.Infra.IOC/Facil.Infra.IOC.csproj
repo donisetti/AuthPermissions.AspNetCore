@@ -1,0 +1,27 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="12.0.0" />
+    <PackageReference Include="ElmahCore" Version="2.1.2" />
+    <PackageReference Include="ElmahCore.Sql" Version="2.1.2" />
+    <PackageReference Include="FastReport.Data.MsSql" Version="2023.2.0" />
+    <PackageReference Include="FastReport.OpenSource" Version="2023.2.2" />
+    <PackageReference Include="FastReport.OpenSource.Export.PdfSimple" Version="2023.2.2" />
+    <PackageReference Include="FastReport.OpenSource.Web" Version="2023.2.2" />
+    <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="11.0.0" />
+    <PackageReference Include="Microsoft.CodeAnalysis.Common" Version="4.8.0" />
+    <PackageReference Include="Swashbuckle.AspNetCore.Swagger" Version="6.3.1" />
+    <PackageReference Include="Swashbuckle.AspNetCore.SwaggerGen" Version="6.3.1" />
+    <PackageReference Include="Swashbuckle.AspNetCore.SwaggerUI" Version="6.3.1" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="8.0.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Facil.Aplicacao\Facil.Aplicacao.csproj" />
+    <ProjectReference Include="..\Facil.Dominio\Facil.Dominio.csproj" />
+    <ProjectReference Include="..\Facil.Infra.Data\Facil.Infra.Data.csproj" />
+  </ItemGroup>
+</Project>

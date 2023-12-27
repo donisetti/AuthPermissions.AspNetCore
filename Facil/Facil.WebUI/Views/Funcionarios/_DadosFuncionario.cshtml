@@ -1,0 +1,110 @@
+﻿@model Facil.Aplicacao.DTOs.FuncionarioDTO
+
+<div class="row">
+
+    <div class="col-sm-2">
+        <label asp-for="Codigo" class="control-label"></label>
+        <input asp-for="Codigo" class="form-control" />
+        <span asp-validation-for="Codigo" class="text-danger"></span>
+    </div>
+
+    <div class="col-sm-8">
+        <label asp-for="Nome" class="control-label"></label>
+        <input asp-for="Nome" class="form-control" />
+        <span asp-validation-for="Nome" class="text-danger"></span>
+    </div>
+
+    <div class="col-sm-2">
+        <label asp-for="DataNascimento" class="control-label"></label>
+        <input asp-for="DataNascimento" class="form-control" />
+        <span asp-validation-for="DataNascimento" class="text-danger"></span>
+    </div>
+
+</div>
+
+<div class="row">
+
+    <div class="col-sm-3">
+        <label asp-for="Endereco" class="control-label"></label>
+        <input asp-for="Endereco" class="form-control" />
+        <span asp-validation-for="Endereco" class="text-danger"></span>
+    </div>
+
+    <div class="col-sm-3">
+        <label asp-for="Bairro" class="control-label"></label>
+        <input asp-for="Bairro" class="form-control" />
+        <span asp-validation-for="Bairro" class="text-danger"></span>
+    </div>
+
+    <div class="col-sm-2">
+        <label asp-for="Municipio" class="col-md-4 control-label"></label>
+     @*    <select asp-for="Municipio" class="form-control" asp-items="ViewBag.Municipios"> </select> *@
+        <input asp-for="Municipio" class="form-control" />
+        <span asp-validation-for="Municipio" class="text-danger"></span>
+    </div>
+
+    <div class="col-sm-2">
+        <label asp-for="Uf" class="col-md-4 control-label"></label>
+       @*  <select asp-for="Uf" class="form-control" asp-items="ViewBag.Estados"> </select> *@
+        <input asp-for="Uf" class="form-control" />
+        <span asp-validation-for="Uf" class="text-danger"></span>
+    </div>
+
+    <div class="col-sm-2">
+        <label asp-for="Cep" class="control-label"></label>
+        <input asp-for="Cep" class="form-control" />
+        <span asp-validation-for="Cep" class="text-danger"></span>
+    </div>
+
+</div>
+
+<div class="row">
+
+    <div class="col-sm-4">
+        <label asp-for="Fone" class="control-label"></label>
+        <input asp-for="Fone" class="form-control" />
+        <span asp-validation-for="Fone" class="text-danger"></span>
+    </div>
+
+    <div class="col-sm-4">
+        <label asp-for="Profissao" class="control-label"></label>
+        <input asp-for="Profissao" class="form-control" />
+        <span asp-validation-for="Profissao" class="text-danger"></span>
+    </div>
+
+    <div class="col-sm-4">
+        <label asp-for="FoneTrabalho" class="control-label"></label>
+        <input asp-for="FoneTrabalho" class="form-control" />
+        <span asp-validation-for="FoneTrabalho" class="text-danger"></span>
+    </div>
+
+</div>
+
+<div class="row">
+
+    <div class="col-sm-6">
+        <label asp-for="Cpf" class="control-label"></label>
+        <input asp-for="Cpf" class="form-control" />
+        <span asp-validation-for="Cpf" class="text-danger"></span>
+    </div>
+
+    <div class="col-sm-6">
+        <label asp-for="Rg" class="control-label"></label>
+        <input asp-for="Rg" class="form-control" />
+        <span asp-validation-for="Rg" class="text-danger"></span>
+    </div>
+
+</div>
+
+<div class="row">
+
+    <div class="col-sm-6">
+        <label asp-for="Filiacao" class="control-label"></label>
+        <input asp-for="Filiacao" class="form-control" />
+        <span asp-validation-for="Filiacao" class="text-danger"></span>
+    </div>
+
+
+</div>
+
+<hr />

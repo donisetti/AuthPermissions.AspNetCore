@@ -1,0 +1,24 @@
+﻿@model Facil.Aplicacao.DTOs.AtendimentoDTO
+
+@{
+    ViewData["Title"] = "Alterar Atendimento";
+}
+
+@await Html.PartialAsync("_Cadastro_Cabecalho")
+
+<form asp-action="Edit">
+
+    <div class="container">
+
+        @await Html.PartialAsync("_DadosAtendimento")
+
+        <div class="form-group">
+            <input type="submit" value="Gravar" class="btn btn-primary" />
+        </div>
+
+    </div>
+
+</form>
+
+
+

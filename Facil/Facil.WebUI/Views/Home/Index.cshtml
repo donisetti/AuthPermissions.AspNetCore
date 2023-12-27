@@ -1,0 +1,29 @@
+﻿@{
+    ViewData["Title"] = "BioCentro";
+}
+
+<div class="text-center">
+    
+  <div style="height: 550px">
+        <picture>
+            <source media="(max-width: 750px)" srcset="~/images/bio-1080.png" />
+            <source media="(max-width: 1050px)" srcset="~/images/bio-500.png" />
+
+            <img src="~/images/bio-400.png" style="height: 400px" />
+
+        </picture>
+  </div>
+
+    
+   <div class="row">
+        <h6>@ViewBag.Versao - @ViewBag.Data</h6>
+   </div>
+    <div class="">
+
+        @if (@ViewBag.Ambiente != "Produção")
+        {
+            <h6>@ViewBag.Servidor - @ViewBag.BancoDados - @ViewBag.Ambiente </h6>
+        }
+    </div>
+</div>
+

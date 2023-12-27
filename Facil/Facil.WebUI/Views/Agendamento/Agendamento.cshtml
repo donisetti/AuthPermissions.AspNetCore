@@ -1,0 +1,30 @@
+﻿@* DEMO: Exemplo: Day gridViews *@
+
+<link href="~/css/fullcalendar.css" rel="stylesheet" />
+<link href="~/css/agendamento.css" rel="stylesheet" />
+
+
+<script src="~/js/Agendamento.js"></script>
+@* <script src="~/js/calendario.js"></script>
+ *@
+<div class="text-center">
+
+    @if (ViewBag.Role == "Medico")
+    {
+        <h2>AGENDAMENTOS DO PROFISSIONAL</h2>
+        <div id='calendar-P'></div>
+    }
+
+
+    @if (ViewBag.Role == "Secretaria")
+    {
+        <h2>AGENDAMENTOS GERAL</h2>
+        <div id='calendar-G'></div>
+    }
+
+
+    @await Html.PartialAsync("_Visualizar")
+    @await Html.PartialAsync("_Cadastrar")
+
+
+</div>

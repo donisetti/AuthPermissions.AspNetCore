@@ -1,0 +1,22 @@
+﻿@model Facil.Aplicacao.DTOs.ClienteDTO
+
+@{
+    ViewData["Title"] = "Cadastrar Cliente";
+}
+
+@await Html.PartialAsync("_Cadastro_Cabecalho")
+
+<form asp-action="Create" method="post">
+
+    <div class="container">
+
+        @await Html.PartialAsync("_DadosCliente")
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Incluir" class="btn btn-success" />
+                <a asp-action="Index" class="btn btn-info">Voltar</a>
+            </div>
+        </div>
+    </div>
+</form>

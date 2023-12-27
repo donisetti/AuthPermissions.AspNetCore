@@ -1,0 +1,102 @@
+﻿@model IEnumerable<Facil.Aplicacao.DTOs.AppointmentDTO>
+
+@{
+    ViewData["Title"] = "Agendamentos";
+}
+
+@* @await Html.PartialAsync("_Grid_Cabecalho") *@
+@await Html.PartialAsync("_Grid_Agenda")
+
+<div class="panel panel-default">
+    <table id="table-clientes" class="table table-striped">
+        <thead>
+            <tr>
+                <th></th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Title)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Start)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.End)
+                </th>
+                 <th>
+                    @Html.DisplayNameFor(model => model.Cliente)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Funcionario)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.EventStatus)
+                </th>
+
+
+               @*  <th>
+                    @Html.DisplayNameFor(model => model.Other_details)
+                </th> *@
+
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@item.Id" title="Alterar" class="btn btn-warning">
+                            <span class="fas fa-edit"></span>
+                        </a>
+
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Title)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Start)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.End)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Cliente.Nome)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Funcionario.Nome)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.EventStatus)
+                    </td>
+
+
+                  @*   <td>
+                        @Html.DisplayFor(modelItem => item.Other_details)
+                    </td>
+ *@
+                
+                    <td>
+                        <a asp-action="Delete" asp-route-id="@item.Id" title="Excluir" class="btn btn-danger">
+                            <span class="fas fa-trash-alt"></span>
+                        </a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+
+@section Scripts {
+
+    <script>
+        $(document).ready(function () {
+            $('#table-clientes').DataTable({
+                "language": {
+                    "url": "https://cdn.datatables.net/plug-ins/1.13.3/i18n/pt-BR.json"
+                }
+            })
+
+        });
+    </script>
+
+}         

@@ -1,0 +1,105 @@
+﻿@using Facil.Infra.Data.Identity;
+@model List<UserRolesViewModel>
+
+@{
+    ViewData["Title"] = "Cadastro de Usuários";
+}
+
+<div class="container row">
+
+
+    <div class="col-md-3">
+        <div>
+            <div class="pull-left">
+                <h4>@ViewData["Title"]</h4>
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="col-md-3">
+        <div>
+            <div class="pull-left">
+                <a asp-area="" asp-controller="Account" asp-action="Register" class="btn btn-primary">
+                    <span title="Novo usuário" class="fa-regular fa-square-plus"></span> Novo Usuário
+                </a>
+            </div>
+
+        </div>
+
+    </div>
+
+
+</div>
+
+<hr />
+
+
+<div class="panel panel-default">
+    <table id="table-usuario" class="table table-striped">
+        <thead>
+            <tr>                
+                <th>
+                    @Html.DisplayName("EMAIL")
+                </th>
+                <th>
+                    @Html.DisplayName("FUNÇÃO")
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>                    
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Email)
+                    </td>
+
+                    <td>@string.Join(" , ", item.Roles.ToList())</td>
+
+                    <td>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+
+@section Scripts {
+
+    <script>
+        $(document).ready(function () {
+            $('#table-usuario').DataTable({
+                "language": {
+                    "url": "https://cdn.datatables.net/plug-ins/1.13.3/i18n/pt-BR.json"
+                }
+            })
+
+        });
+    </script>
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,75 @@
+﻿@using Facil.Dominio.Enums
+@model Facil.Aplicacao.DTOs.AppointmentDTO
+
+<div class="row">
+    <div class="col-sm-5">
+        <label asp-for="ClienteId" class="col-md-4 control-label"></label>
+        <select asp-for="ClienteId" class="form-control" asp-items="ViewBag.ClienteId">
+            <option value="">Selecione um cliente</option>
+        </select>
+        <span asp-validation-for="ClienteId" class="text-danger"></span>
+    </div>
+
+    <div class="col-sm-5">
+        <label asp-for="FuncionarioId" class="col-md-4 control-label"></label>
+        <select asp-for="FuncionarioId" class="form-control" asp-items="ViewBag.FuncionarioId">
+            <option value="">Selecione um Funcionário</option>
+        </select>
+        <span asp-validation-for="FuncionarioId" class="text-danger"></span>
+    </div>
+
+    <div class="col-sm-2">
+        <label asp-for="EventStatus" class="control-label"></label>
+        <select asp-for="EventStatus" class="form-control" asp-items="Html.GetEnumSelectList<AppointmentStatus>()"></select>
+
+        @* <input asp-for="EventStatus" class="form-control" /> *@
+        <span asp-validation-for="EventStatus" class="text-danger"></span>
+    </div>
+
+</div>
+
+<div class="row">
+
+    <div class="col-sm-6">
+        <label asp-for="Title" class="control-label"></label>
+        <input asp-for="Title" class="form-control" />
+        <span asp-validation-for="Title" class="text-danger"></span>
+    </div>
+
+    <div class="col-sm-3">
+        <label asp-for="Start" class="control-label"></label>
+        <input asp-for="Start" class="form-control" />
+        <span asp-validation-for="Start" class="text-danger"></span>
+    </div>
+
+    <div class="col-sm-3">
+        <label asp-for="End" class="control-label"></label>
+        <input asp-for="End" class="form-control" />
+        <span asp-validation-for="End" class="text-danger"></span>
+    </div>
+
+   
+</div>
+
+
+@* <div class="row">
+
+   
+
+    <div class="col-sm-4">
+        <label asp-for="Location" class="control-label"></label>
+        <input asp-for="Location" class="form-control" />
+        <span asp-validation-for="Location" class="text-danger"></span>
+    </div>
+
+    <div class="col-sm-4">
+        <label asp-for="Other_details" class="control-label"></label>
+        <input asp-for="Other_details" class="form-control" />
+        <span asp-validation-for="Other_details" class="text-danger"></span>
+    </div>
+
+   
+</div> *@
+
+
+

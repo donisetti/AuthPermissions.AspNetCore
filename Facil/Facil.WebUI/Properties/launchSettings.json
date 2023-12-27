@@ -1,0 +1,85 @@
+﻿{
+  "iisSettings": {
+    "windowsAuthentication": false,
+    "anonymousAuthentication": true,
+    "iisExpress": {
+      "applicationUrl": "http://localhost:18600",
+      "sslPort": 44313
+    }
+  },
+  "profiles": {
+    "Facil.WebUI": {
+      "commandName": "Project",
+      "dotnetRunMessages": true,
+      "launchBrowser": true,
+      "applicationUrl": "https://localhost:7279;http://localhost:5225",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      }
+    },
+
+    "Valdir Dev - Facil.WebUI": {
+      "commandName": "Project",
+      "dotnetRunMessages": true,
+      "launchBrowser": true,
+      "applicationUrl": "https://localhost:7010;http://localhost:5110",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development",
+        "DATABASE_CONNECTION_STRING": "Data Source=NOTE-VAL\\SQLSERVER2014;Initial Catalog=db_a903e8_biocentro;User Id=sa; Password=csystems;Integrated Security=False"
+
+      }
+    },
+
+    "SmarterAsp Prod - Facil.WebUI": {
+      "commandName": "Project",
+      "dotnetRunMessages": true,
+      "launchBrowser": true,
+      "applicationUrl": "https://localhost:7010;http://localhost:5110",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Production",
+        "DATABASE_CONNECTION_STRING": "Data Source=sql5063.site4now.net;Initial Catalog=db_a903e8_biocentro;User Id=db_a903e8_biocentro_admin; Password=Val@2022*;Integrated Security=False"
+      }
+    },
+
+    "Agenda Prod - Facil.WebUI": {
+      "commandName": "Project",
+      "dotnetRunMessages": true,
+      "launchBrowser": true,
+      "applicationUrl": "https://localhost:7010;http://localhost:5110",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Production",
+        "DATABASE_CONNECTION_STRING": "Data Source=sql5105.site4now.net;Initial Catalog=db_a903e8_Agenda;User Id=db_a903e8_agenda_admin; Password=Val@2022*;Integrated Security=False"
+      }
+    },
+
+    "Valdir Prod - Facil.WebUI": {
+      "commandName": "Project",
+      "dotnetRunMessages": true,
+      "launchBrowser": true,
+      "applicationUrl": "https://localhost:7010;http://localhost:5110",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Production",
+        "DATABASE_CONNECTION_STRING": "Data Source=sql5063.site4now.net;Initial Catalog=db_a903e8_biocentro;User Id=db_a903e8_facilweb_admin;Password=Val@2023*"
+      }
+    },
+
+    "Donisetti Dev - Facil.WebUI": {
+      "commandName": "Project",
+      "dotnetRunMessages": true,
+      "launchBrowser": true,
+      "applicationUrl": "https://localhost:7010;http://localhost:5110",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development",
+        "DATABASE_CONNECTION_STRING": "Data Source=Vega02;Initial Catalog=db_a903e8_biocentro;Integrated Security=True"
+
+      }
+    },
+    "IIS Express": {
+      "commandName": "IISExpress",
+      "launchBrowser": true,
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      }
+    }
+  }
+}

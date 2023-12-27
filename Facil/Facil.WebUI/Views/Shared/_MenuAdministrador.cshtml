@@ -1,0 +1,67 @@
+﻿
+<ul class="navbar-nav flex-grow-1">
+
+    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Cadastro
+        </a>
+        <ul class="dropdown-menu">
+
+            <li><a class="nav-link text-dark" asp-area="Admin" asp-controller="Usuarios" asp-action="Index">Usuários</a></li>
+
+@*            <li><a class="nav-link text-dark" asp-area="" asp-controller="UserRoles" asp-action="Manage">Funções</a></li>
+*@
+            <li><a class="nav-link text-dark" asp-area="" asp-controller="RoleManager" asp-action="Index">Funções</a></li>
+
+
+            <li class="dropdown-divider"></li> <!-- Separador -->
+
+            <li><a class="nav-link text-dark" asp-area="" asp-controller="Clientes" asp-action="Index">Clientes</a></li>
+
+            <li><a class="nav-link text-dark" asp-area="" asp-controller="Funcionarios" asp-action="Index">Funcionários</a></li>
+
+            <li><a class="nav-link text-dark" asp-area="" asp-controller="Agendamento" asp-action="Index">Agendamentos</a></li>
+        </ul>
+    </li>
+
+    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Movimentos
+        </a>
+        <ul class="dropdown-menu">
+            <li><a class="nav-link text-dark" asp-area="" asp-controller="Atendimentos" asp-action="index">Atendimentos</a></li>
+        </ul>
+    </li>
+
+    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Agendamento
+        </a>
+        <ul class="dropdown-menu">
+
+            <li>
+                <a asp-controller="Agendamento" asp-action="Agenda" asp-route-role="Geral" class="nav-link text-dark">Geral</a>
+            </li>
+
+            <li>
+                <a asp-controller="Agendamento" asp-action="Agenda" asp-route-role="Profissional" class="nav-link text-dark">Profissional</a>
+            </li>
+
+
+
+        </ul>
+    </li>
+
+    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Relatórios
+        </a>
+        <ul class="dropdown-menu">
+            @*<li><a class="nav-link text-dark" asp-area="" asp-controller="Relatorios" asp-action="clientes">Clientes</a></li>*@
+            <li><a class="nav-link text-dark" asp-area="" asp-controller="Relatorios" asp-action="atendimentos">Atendimentos</a></li>
+        </ul>
+
+    </li>
+
+
+</ul>
