@@ -23,6 +23,7 @@
     <ProjectReference Include="..\..\AuthPermissions.SqlServer\AuthPermissions.SqlServer.csproj" />
     <ProjectReference Include="..\..\AuthPermissions.SupportCode\AuthPermissions.SupportCode.csproj" />
     <ProjectReference Include="..\..\AuthPermissions\AuthPermissions.csproj" />
+    <ProjectReference Include="..\..\ExamplesCommonCode\ExamplesCommonCode.csproj" />
     <ProjectReference Include="..\Facil.Infra.Data\Facil.Infra.Data.csproj" />
     <ProjectReference Include="..\Facil.Infra.IOC\Facil.Infra.IOC.csproj" />
   </ItemGroup>
