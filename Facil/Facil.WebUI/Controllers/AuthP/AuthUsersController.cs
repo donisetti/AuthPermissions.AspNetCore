@@ -15,7 +15,7 @@ using LocalizeMessagesAndErrors;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
-namespace Example4.MvcWebApp.IndividualAccounts.Controllers
+namespace Facil.WebUI.Controllers
 {
     public class AuthUsersController : Controller
     {
