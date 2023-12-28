@@ -5,16 +5,15 @@ using System.Collections.Generic;
 using System.Linq;
 
 namespace Facil.WebUI.Models;
-{
-    public class TenantMoveInfo
-    {
-        public TenantMoveInfo(string message, List<(string previousDataKey, string newDataKey, string newFullName)> moveData)
-        {
-            Message = message;
-            MoveData = moveData.OrderBy(x => x.newFullName).ToList();
-        }
 
-        public string Message { get; }
-        public List<(string previousDataKey, string newDataKey, string newFullName)> MoveData { get; }
+public class TenantMoveInfo
+{
+    public TenantMoveInfo(string message, List<(string previousDataKey, string newDataKey, string newFullName)> moveData)
+    {
+        Message = message;
+        MoveData = moveData.OrderBy(x => x.newFullName).ToList();
     }
+
+    public string Message { get; }
+    public List<(string previousDataKey, string newDataKey, string newFullName)> MoveData { get; }
 }

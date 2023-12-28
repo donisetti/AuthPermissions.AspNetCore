@@ -4,10 +4,9 @@
 using AuthPermissions.AdminCode;
 
 namespace Facil.WebUI.Models;
+
+public class AuthIdAndChange
 {
-    public class AuthIdAndChange
-    {
-        public SyncAuthUserChangeTypes FoundChangeType { get; set; }
-        public string UserId { get; set; }
-    }
+    public SyncAuthUserChangeTypes FoundChangeType { get; set; }
+    public string UserId { get; set; }
 }
